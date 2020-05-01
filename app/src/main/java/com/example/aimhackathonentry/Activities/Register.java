@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.aimhackathonentry.Helpers.NavigationManager;
@@ -11,6 +12,8 @@ import com.example.aimhackathonentry.R;
 
 public class Register extends AppCompatActivity {
 
+
+    private Button btnRegister;
 
     private TextView btnLogIn;
 
@@ -27,7 +30,18 @@ public class Register extends AppCompatActivity {
 
     private void updateViews() {
 
+        btnRegister = findViewById(R.id.btnRegister);
+
         btnLogIn = findViewById(R.id.btnLogIn);
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                register();
+
+            }
+        });
 
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +51,14 @@ public class Register extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    private void register() {
+
+        NavigationManager.goToMainActivity(Register.this);
+        finish();
 
     }
 

@@ -6,9 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_navigation_view"/>
 
 </RelativeLayout>

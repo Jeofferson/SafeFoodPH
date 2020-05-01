@@ -13,6 +13,8 @@ import com.example.aimhackathonentry.R;
 public class LogIn extends AppCompatActivity {
 
 
+    private Button btnLogIn;
+
     private TextView btnRegister;
 
 
@@ -28,7 +30,18 @@ public class LogIn extends AppCompatActivity {
 
     private void updateViews() {
 
+        btnLogIn = findViewById(R.id.btnLogIn);
+
         btnRegister = findViewById(R.id.btnRegister);
+
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                logIn();
+
+            }
+        });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +51,14 @@ public class LogIn extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    private void logIn() {
+
+        NavigationManager.goToMainActivity(LogIn.this);
+        finish();
 
     }
 
