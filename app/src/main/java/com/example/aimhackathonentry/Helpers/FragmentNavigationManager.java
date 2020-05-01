@@ -5,9 +5,10 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import com.example.aimhackathonentry.Fragments.FragmentCart;
-import com.example.aimhackathonentry.Fragments.FragmentHome;
-import com.example.aimhackathonentry.Fragments.FragmentProfile;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentCart;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentHome;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentProfile;
+import com.example.aimhackathonentry.Fragments.FragmentProducts;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
@@ -18,6 +19,24 @@ public class FragmentNavigationManager {
 
         SuperGlobals.currentTab = fromTab;
         SuperGlobals.tabLinkedHashMap.get(fromTab).add(new FragmentHome());
+
+        Fragment fragment = SuperGlobals.tabLinkedHashMap.get(fromTab).get(SuperGlobals.tabLinkedHashMap.get(fromTab).size() - 1);
+        ((FragmentActivity) view.getContext()).getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentContainer, fragment)
+                .hide(SuperGlobals.currentFragment)
+                .show(fragment)
+                .commit();
+
+        SuperGlobals.currentFragment = fragment;
+
+    }
+
+
+    public static void goToFragmentCountry(View view, String fromTab) {
+
+        SuperGlobals.currentTab = fromTab;
+        SuperGlobals.tabLinkedHashMap.get(fromTab).add(new FragmentProducts());
 
         Fragment fragment = SuperGlobals.tabLinkedHashMap.get(fromTab).get(SuperGlobals.tabLinkedHashMap.get(fromTab).size() - 1);
         ((FragmentActivity) view.getContext()).getSupportFragmentManager()

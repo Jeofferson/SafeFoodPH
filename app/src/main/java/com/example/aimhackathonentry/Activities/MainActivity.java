@@ -8,9 +8,9 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.aimhackathonentry.Fragments.FragmentCart;
-import com.example.aimhackathonentry.Fragments.FragmentHome;
-import com.example.aimhackathonentry.Fragments.FragmentProfile;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentCart;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentHome;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentProfile;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;

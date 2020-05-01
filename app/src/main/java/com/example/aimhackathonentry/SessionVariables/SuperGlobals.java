@@ -2,8 +2,11 @@ package com.example.aimhackathonentry.SessionVariables;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.aimhackathonentry.ObjectModels.Category;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class SuperGlobals {
 
@@ -17,6 +20,8 @@ public class SuperGlobals {
     public static Fragment tab4;
 
     public static LinkedHashMap<String, ArrayList<Fragment>> tabLinkedHashMap = new LinkedHashMap<>();
+
+    public static List<Category> categoryList = new ArrayList<>();
 
 
 }

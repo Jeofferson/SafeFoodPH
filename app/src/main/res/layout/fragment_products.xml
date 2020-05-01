@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BottomNavigationViewItems.FragmentHome">
+    tools:context=".Fragments.FragmentProducts">
 
     <include
         android:id="@+id/toolbar"
@@ -19,9 +19,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCategories"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
         android:layout_below="@id/searchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/row_category"/>
+        tools:listitem="@layout/row_product"/>
 
 </RelativeLayout>

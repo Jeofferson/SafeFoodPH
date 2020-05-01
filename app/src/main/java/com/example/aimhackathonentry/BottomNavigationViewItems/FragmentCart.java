@@ -1,4 +1,4 @@
-package com.example.aimhackathonentry.Fragments;
+package com.example.aimhackathonentry.BottomNavigationViewItems;
 
 import android.os.Bundle;
 
@@ -13,9 +13,9 @@ import com.example.aimhackathonentry.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentProfile extends Fragment {
+public class FragmentCart extends Fragment {
 
-    public FragmentProfile() {
+    public FragmentCart() {
         // Required empty public constructor
     }
 
@@ -24,6 +24,6 @@ public class FragmentProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.fragment_cart, container, false);
     }
 }
