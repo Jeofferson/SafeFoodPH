@@ -14,11 +14,13 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/txtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"/>
 
         <EditText
+            android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"/>
