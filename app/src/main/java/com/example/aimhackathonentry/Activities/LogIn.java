@@ -2,10 +2,13 @@ package com.example.aimhackathonentry.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +20,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
+import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,9 +37,13 @@ import java.util.Map;
 public class LogIn extends AppCompatActivity {
 
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     private TextView txtUsername;
     private TextView txtPassword;
     private Button btnLogIn;
+    private ProgressBar progressBar;
 
     private TextView btnRegister;
 
@@ -44,7 +53,29 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        sharedPreferences = getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        checkedIfLoggedIn();
+
         updateViews();
+
+    }
+
+
+    private void checkedIfLoggedIn() {
+
+        if (sharedPreferences.getString(ConstantsSharedPreferences.ONLINE_STATUS, "").equals("Online")) {
+
+            Gson gson = new Gson();
+            String json = sharedPreferences.getString(ConstantsSharedPreferences.CURRENT_USER, "");
+            User user = gson.fromJson(json, User.class);
+            SuperGlobals.currentUser = user;
+
+            NavigationManager.goToMainActivity(LogIn.this);
+            finish();
+
+        }
 
     }
 
@@ -54,6 +85,7 @@ public class LogIn extends AppCompatActivity {
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
         btnLogIn = findViewById(R.id.btnLogIn);
+        progressBar = findViewById(R.id.progressBar);
 
         btnRegister = findViewById(R.id.btnRegister);
 
@@ -79,6 +111,8 @@ public class LogIn extends AppCompatActivity {
 
 
     private void logIn() {
+
+        hideViewsAction();
 
         final String username = txtUsername.getText().toString().trim();
         final String password = txtPassword.getText().toString().trim();
@@ -118,7 +152,7 @@ public class LogIn extends AppCompatActivity {
                                 String address = jsonObject.getString("address");
                                 String isLoggedIn = jsonObject.getString("isLoggedIn");
 
-                                SuperGlobals.currentUser = new User(
+                                User user = new User(
                                         userId,
                                         username,
                                         password,
@@ -128,6 +162,14 @@ public class LogIn extends AppCompatActivity {
                                         address,
                                         isLoggedIn
                                 );
+
+                                SuperGlobals.currentUser = user;
+
+                                Gson gson = new Gson();
+                                String json = gson.toJson(user);
+                                editor.putString(ConstantsSharedPreferences.CURRENT_USER, json);
+                                editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
+                                editor.commit();
 
                                 NavigationManager.goToMainActivity(LogIn.this);
                                 finish();
@@ -178,9 +220,25 @@ public class LogIn extends AppCompatActivity {
 
     private void showError(String message) {
 
-//        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
-//
-//        showViewsAction();
+        Toast.makeText(LogIn.this, message, Toast.LENGTH_SHORT).show();
+
+        showViewsAction();
+
+    }
+
+
+    private void hideViewsAction() {
+
+        btnLogIn.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
+
+    }
+
+
+    private void showViewsAction() {
+
+        progressBar.setVisibility(View.GONE);
+        btnLogIn.setVisibility(View.VISIBLE);
 
     }
 
