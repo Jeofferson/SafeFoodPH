@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    <color name="colorPrimary">#6200EE</color>-->
+<!--    <color name="colorPrimaryDark">#3700B3</color>-->
+<!--    <color name="colorAccent">#03DAC5</color>-->
+
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimaryDark">@color/theme6</color>
+    <color name="colorAccent">@color/theme1</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="theme1">#C0EC83</color>
+    <color name="theme2">#A7E074</color>
+    <color name="theme3">#96CC39</color>
+    <color name="theme4">#6BA32D</color>
+    <color name="theme5">#547A1D</color>
+    <color name="theme6">#3B5C0A</color>
 </resources>
