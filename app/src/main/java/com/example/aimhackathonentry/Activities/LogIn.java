@@ -139,7 +139,7 @@ public class LogIn extends AppCompatActivity {
 
                             if (status.equals("failed")) {
 
-                                showError("Invalid credentials.");
+                                showError(jsonObject.getString("errorMessage"));
 
                             } else if (status.equals("success")) {
 
@@ -150,7 +150,6 @@ public class LogIn extends AppCompatActivity {
                                 String lastName = jsonObject.getString("lastName");
                                 String displayPicture = jsonObject.getString("displayPicture");
                                 String address = jsonObject.getString("address");
-                                String isLoggedIn = jsonObject.getString("isLoggedIn");
 
                                 User user = new User(
                                         userId,
@@ -159,8 +158,7 @@ public class LogIn extends AppCompatActivity {
                                         firstName,
                                         lastName,
                                         displayPicture,
-                                        address,
-                                        isLoggedIn
+                                        address
                                 );
 
                                 SuperGlobals.currentUser = user;

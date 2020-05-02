@@ -11,10 +11,9 @@ public class User {
     private String lastName;
     private String displayPicture;
     private String address;
-    private String isLoggedIn;
 
 
-    public User(int userId, String username, String password, String firstName, String lastName, String displayPicture, String address, String isLoggedIn) {
+    public User(int userId, String username, String password, String firstName, String lastName, String displayPicture, String address) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -22,7 +21,6 @@ public class User {
         this.lastName = lastName;
         this.displayPicture = displayPicture;
         this.address = address;
-        this.isLoggedIn = isLoggedIn;
     }
 
 
@@ -80,14 +78,6 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getIsLoggedIn() {
-        return isLoggedIn;
-    }
-
-    public void setIsLoggedIn(String isLoggedIn) {
-        this.isLoggedIn = isLoggedIn;
     }
 
 
