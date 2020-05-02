@@ -2,7 +2,6 @@ package com.example.aimhackathonentry.SessionVariables;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.User;
 
@@ -17,11 +16,7 @@ public class SuperGlobals {
     public static Fragment currentFragment;
 
     public static User currentUser;
-
-    public static Fragment tab1;
-    public static Fragment tab2;
-    public static Fragment tab3;
-    public static Fragment tab4;
+    public static Product currentProduct;
 
     public static LinkedHashMap<String, ArrayList<Fragment>> tabLinkedHashMap = new LinkedHashMap<>();
 

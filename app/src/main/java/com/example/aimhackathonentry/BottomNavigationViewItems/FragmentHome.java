@@ -22,10 +22,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
-import com.example.aimhackathonentry.RecyclerViewAdapter.CategoryAdapter;
 import com.example.aimhackathonentry.RecyclerViewAdapter.ProductAdapter;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
@@ -34,7 +32,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,6 +93,8 @@ public class FragmentHome extends Fragment {
 
 
     private void queryProducts() {
+
+        SuperGlobals.productList.clear();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,

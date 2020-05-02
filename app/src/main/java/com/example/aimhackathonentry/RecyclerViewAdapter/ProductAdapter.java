@@ -10,10 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.Fragments.FragmentProduct;
 import com.example.aimhackathonentry.Helpers.FragmentNavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
 import java.util.List;
 
@@ -50,9 +53,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         Product product = productList.get(position);
 
-        String sellerFullName = String.format("%s %s", product.getFirstName(), product.getLastName());
-        holder.lblSellerFullName.setText(sellerFullName);
+        Glide.with(context).load(product.getUserDisplayPicture()).into(holder.imgSellerDisplayPicture);
+        String fullName = String.format("%s %s", product.getFirstName(), product.getLastName());
+        holder.lblFullName.setText(fullName);
 
+        Glide.with(context).load(product.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
         holder.lblDescription.setText(product.getDescription());
         holder.lblPrice.setText(String.valueOf(product.getPrice()));
         holder.lblSellerAddress.setText(product.getAddress());
@@ -69,9 +74,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public class ProductViewHolder extends RecyclerView.ViewHolder {
 
         private CircleImageView imgSellerDisplayPicture;
-        private TextView lblSellerFullName;
+        private TextView lblFullName;
 
-        private ImageView imgDisplayPicture;
+        private ImageView imgProductDisplayPicture;
         private TextView lblDescription;
         private TextView lblPrice;
         private TextView lblSellerAddress;
@@ -80,9 +85,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             super(itemView);
 
             imgSellerDisplayPicture = itemView.findViewById(R.id.imgSellerDisplayPicture);
-            lblSellerFullName = itemView.findViewById(R.id.lblSellerFullName);
+            lblFullName = itemView.findViewById(R.id.lblFullName);
 
-            imgDisplayPicture = itemView.findViewById(R.id.imgDisplayPicture);
+            imgProductDisplayPicture = itemView.findViewById(R.id.imgProductDisplayPicture);
             lblDescription = itemView.findViewById(R.id.lblDescription);
             lblPrice = itemView.findViewById(R.id.lblPrice);
             lblSellerAddress = itemView.findViewById(R.id.lblSellerAddress);
@@ -100,7 +105,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         private void goToFragmentProduct(View view) {
 
-            FragmentNavigationManager.goToFragmentProduct(view, Constants.HOME);
+            SuperGlobals.currentProduct = productList.get(getAdapterPosition());
+            FragmentNavigationManager.goToFragment(view, Constants.HOME, new FragmentProduct());
 
         }
 

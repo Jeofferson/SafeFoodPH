@@ -27,7 +27,7 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:id="@+id/lblSellerFullName"
+                android:id="@+id/lblFullName"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imgDisplayPicture"
+            android:id="@+id/imgProductDisplayPicture"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -60,10 +60,9 @@
             android:id="@+id/lblPrice"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:text="Price: 1,200.00"/>
 
@@ -74,7 +73,7 @@
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:text="Dagupan City, Pangasinan"/>
 
