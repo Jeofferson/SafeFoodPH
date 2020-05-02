@@ -58,9 +58,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.lblFullName.setText(fullName);
 
         Glide.with(context).load(product.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
+        holder.lblProductName.setText(product.getProductName());
         holder.lblDescription.setText(product.getDescription());
-        holder.lblPrice.setText(String.valueOf(product.getPrice()));
-        holder.lblSellerAddress.setText(product.getAddress());
+        holder.lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
+        String address = String.format("%s, %s", product.getCity(), product.getProvince());
+        holder.lblSellerAddress.setText(address);
 
     }
 
@@ -77,6 +79,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         private TextView lblFullName;
 
         private ImageView imgProductDisplayPicture;
+        private TextView lblProductName;
         private TextView lblDescription;
         private TextView lblPrice;
         private TextView lblSellerAddress;
@@ -88,6 +91,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             lblFullName = itemView.findViewById(R.id.lblFullName);
 
             imgProductDisplayPicture = itemView.findViewById(R.id.imgProductDisplayPicture);
+            lblProductName = itemView.findViewById(R.id.lblProductName);
             lblDescription = itemView.findViewById(R.id.lblDescription);
             lblPrice = itemView.findViewById(R.id.lblPrice);
             lblSellerAddress = itemView.findViewById(R.id.lblSellerAddress);

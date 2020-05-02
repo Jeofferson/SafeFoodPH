@@ -9,7 +9,8 @@ public class Product {
     private String firstName;
     private String lastName;
     private String userDisplayPicture;
-    private String address;
+    private String city;
+    private String province;
 
     private String productName;
     private String productDisplayPicture;
@@ -20,13 +21,14 @@ public class Product {
     private String paymentMethod;
 
 
-    public Product(int productId, int sellerId, String firstName, String lastName, String userDisplayPicture, String address, String productName, String productDisplayPicture, String category, double price, int quantity, String description, String paymentMethod) {
+    public Product(int productId, int sellerId, String firstName, String lastName, String userDisplayPicture, String city, String province, String productName, String productDisplayPicture, String category, double price, int quantity, String description, String paymentMethod) {
         this.productId = productId;
         this.sellerId = sellerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userDisplayPicture = userDisplayPicture;
-        this.address = address;
+        this.city = city;
+        this.province = province;
         this.productName = productName;
         this.productDisplayPicture = productDisplayPicture;
         this.category = category;
@@ -77,12 +79,20 @@ public class Product {
         this.userDisplayPicture = userDisplayPicture;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getProductName() {

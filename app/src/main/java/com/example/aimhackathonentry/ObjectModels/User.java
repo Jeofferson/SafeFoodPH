@@ -10,17 +10,19 @@ public class User {
     private String firstName;
     private String lastName;
     private String displayPicture;
-    private String address;
+    private String city;
+    private String province;
 
 
-    public User(int userId, String username, String password, String firstName, String lastName, String displayPicture, String address) {
+    public User(int userId, String username, String password, String firstName, String lastName, String displayPicture, String city, String province) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.displayPicture = displayPicture;
-        this.address = address;
+        this.city = city;
+        this.province = province;
     }
 
 
@@ -72,12 +74,20 @@ public class User {
         this.displayPicture = displayPicture;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
 

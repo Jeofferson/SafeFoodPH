@@ -56,6 +56,10 @@ public class LogIn extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        // For resetting Shared Preferences...
+//        editor.clear();
+//        editor.commit();
+
         checkedIfLoggedIn();
 
         updateViews();
@@ -149,7 +153,8 @@ public class LogIn extends AppCompatActivity {
                                 String firstName = jsonObject.getString("firstName");
                                 String lastName = jsonObject.getString("lastName");
                                 String displayPicture = jsonObject.getString("displayPicture");
-                                String address = jsonObject.getString("address");
+                                String city = jsonObject.getString("city");
+                                String province = jsonObject.getString("province");
 
                                 User user = new User(
                                         userId,
@@ -158,7 +163,8 @@ public class LogIn extends AppCompatActivity {
                                         firstName,
                                         lastName,
                                         displayPicture,
-                                        address
+                                        city,
+                                        province
                                 );
 
                                 SuperGlobals.currentUser = user;

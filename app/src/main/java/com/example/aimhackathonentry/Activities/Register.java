@@ -44,7 +44,8 @@ public class Register extends AppCompatActivity {
     private EditText txtUsername;
     private EditText txtFirstName;
     private EditText txtLastName;
-    private EditText txtAddress;
+    private EditText txtCity;
+    private EditText txtProvince;
     private EditText txtPassword;
     private EditText txtConfirmPassword;
     private Button btnRegister;
@@ -71,7 +72,8 @@ public class Register extends AppCompatActivity {
         txtUsername = findViewById(R.id.txtUsername);
         txtFirstName = findViewById(R.id.txtFirstName);
         txtLastName = findViewById(R.id.txtLastName);
-        txtAddress = findViewById(R.id.txtAddress);
+        txtCity = findViewById(R.id.txtCity);
+        txtProvince = findViewById(R.id.txtProvince);
         txtPassword = findViewById(R.id.txtPassword);
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
         btnRegister = findViewById(R.id.btnRegister);
@@ -107,7 +109,8 @@ public class Register extends AppCompatActivity {
         final String username = txtUsername.getText().toString().trim();
         final String firstName = txtFirstName.getText().toString().trim();
         final String lastName = txtLastName.getText().toString().trim();
-        final String address = txtAddress.getText().toString().trim();
+        final String city = txtCity.getText().toString().trim();
+        final String province = txtProvince.getText().toString().trim();
         final String password = txtPassword.getText().toString().trim();
         final String confirmPassword = txtConfirmPassword.getText().toString().trim();
 
@@ -115,7 +118,8 @@ public class Register extends AppCompatActivity {
                 username.isEmpty() ||
                 firstName.isEmpty() ||
                 lastName.isEmpty() ||
-                address.isEmpty() ||
+                city.isEmpty() ||
+                province.isEmpty() ||
                 password.isEmpty() ||
                 confirmPassword.isEmpty()
         ) {
@@ -160,7 +164,8 @@ public class Register extends AppCompatActivity {
                                         firstName,
                                         lastName,
                                         "",
-                                        address
+                                        city,
+                                        province
                                 );
 
                                 SuperGlobals.currentUser = user;
@@ -208,7 +213,8 @@ public class Register extends AppCompatActivity {
                 params.put("password", password);
                 params.put("firstName", firstName);
                 params.put("lastName", lastName);
-                params.put("address", address);
+                params.put("city", city);
+                params.put("province", province);
 
                 return params;
             }

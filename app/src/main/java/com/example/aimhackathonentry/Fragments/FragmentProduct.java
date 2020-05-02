@@ -1,10 +1,15 @@
 package com.example.aimhackathonentry.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
@@ -21,7 +27,11 @@ import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 public class FragmentProduct extends Fragment {
 
 
+    Product product;
+
     private View view;
+
+    private Toolbar toolbar;
 
     private ImageView imgDisplayPicture;
     private TextView lblPrice;
@@ -43,9 +53,41 @@ public class FragmentProduct extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_product, container, false);
 
+        product = SuperGlobals.currentProduct;
+
         updateViews();
+        setUpToolbar(product.getProductName());
 
         return view;
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                ((Activity) view.getContext()).onBackPressed();
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
+    private void setUpToolbar(String title) {
+
+        toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
+        setHasOptionsMenu(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 
@@ -65,16 +107,14 @@ public class FragmentProduct extends Fragment {
         btnBuyNow = view.findViewById(R.id.btnBuyNow);
         progressBar2 = view.findViewById(R.id.progressBar2);
 
-        Product product = SuperGlobals.currentProduct;
-
         Glide.with(view.getContext()).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
-        lblPrice.setText(String.valueOf(product.getPrice()));
-        lblQuantity.setText(String.valueOf(product.getQuantity()));
-        lblDescription.setText(String.valueOf(product.getDescription()));
+        lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
+        lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
+        lblDescription.setText(product.getDescription());
         String fullName = String.format("%s %s", product.getFirstName(), product.getLastName());
         lblFullName.setText(fullName);
-
-        lblAddress.setText(String.valueOf(product.getAddress()));
+        String address = String.format("%s, %s", product.getCity(), product.getProvince());
+        lblAddress.setText(address);
 
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +143,8 @@ public class FragmentProduct extends Fragment {
 
 
     private void buyNow() {
+
+        NavigationManager.goToPaymentMethod(view.getContext());
 
     }
 

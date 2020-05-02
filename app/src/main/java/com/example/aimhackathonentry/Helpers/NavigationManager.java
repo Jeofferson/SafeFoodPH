@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.example.aimhackathonentry.Activities.LogIn;
 import com.example.aimhackathonentry.Activities.MainActivity;
+import com.example.aimhackathonentry.Activities.PaymentMethod;
 import com.example.aimhackathonentry.Activities.Register;
 
 public class NavigationManager {
@@ -29,6 +30,14 @@ public class NavigationManager {
     public static void goToMainActivity(Context context) {
 
         Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+
+    }
+
+
+    public static void goToPaymentMethod(Context context) {
+
+        Intent intent = new Intent(context, PaymentMethod.class);
         context.startActivity(intent);
 
     }
