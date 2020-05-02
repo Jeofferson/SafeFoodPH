@@ -78,7 +78,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         private void goToFragmentProducts(View view) {
 
-            FragmentNavigationManager.goToFragmentCountry(view, Constants.HOME);
+            FragmentNavigationManager.goToFragmentProduct(view, Constants.HOME);
 
         }
 

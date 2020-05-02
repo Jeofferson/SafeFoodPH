@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="20dp"
+    app:cardCornerRadius="15dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,15 +13,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Name"/>
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgSellerDisplayPicture"
+                android:layout_marginEnd="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:id="@+id/lblSellerFullName"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Seller Full Name"/>
+
+        </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgDisplayPicture"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -28,32 +46,37 @@
             android:scaleType="centerCrop"/>
 
         <TextView
+            android:id="@+id/lblDescription"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:text="@string/dummyText"/>
+
+        <TextView
+            android:id="@+id/lblPrice"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:text="Price: 1,200.00"/>
 
-        <LinearLayout
-            android:layout_gravity="center_horizontal"
+        <TextView
+            android:id="@+id/lblSellerAddress"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_marginEnd="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add to Cart"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buy now"/>
-
-        </LinearLayout>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Dagupan City, Pangasinan"/>
 
     </LinearLayout>
 

@@ -9,5 +9,7 @@ public class ConstantsVolley {
     public static final String URL_LOGIN = String.format("http://%s/SafeFoodPH/login.php", IP_ADDRESS);
     public static final String URL_REGISTER = String.format("http://%s/SafeFoodPH/register.php", IP_ADDRESS);
 
+    public static final String URL_RETRIEVE_PRODUCTS = String.format("http://%s/SafeFoodPH/retrieve_products.php", IP_ADDRESS);
+
 
 }
