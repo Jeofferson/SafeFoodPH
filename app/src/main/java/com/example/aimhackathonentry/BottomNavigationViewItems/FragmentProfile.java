@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -27,9 +31,11 @@ public class FragmentProfile extends Fragment {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
-    private TextView lblUserFullName;
+    private View view;
 
-    private Button btnLogOut;
+    private Toolbar toolbar;
+
+    private TextView lblUserFullName;
 
 
     public FragmentProfile() {}
@@ -37,12 +43,12 @@ public class FragmentProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        userFullName = String.format("%s %s", SuperGlobals.currentUser.getFirstName(), SuperGlobals.currentUser.getLastName());
+        view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         sharedPreferences = getActivity().getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+        setUpToolbar("Profile");
 
         updateViews(view);
 
@@ -51,22 +57,36 @@ public class FragmentProfile extends Fragment {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
+    private void setUpToolbar(String title) {
+
+        toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)view.getContext()).setSupportActionBar(toolbar);
+
+        ((AppCompatActivity)view.getContext()).getSupportActionBar().setTitle(title);
+
+    }
+
+
     private void updateViews(View view) {
 
         lblUserFullName = view.findViewById(R.id.lblUserFullName);
 
-        btnLogOut = view.findViewById(R.id.btnLogOut);
-
+        userFullName = String.format("%s %s", SuperGlobals.currentUser.getFirstName(), SuperGlobals.currentUser.getLastName());
         lblUserFullName.setText(userFullName);
-
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                logOut();
-
-            }
-        });
 
     }
 

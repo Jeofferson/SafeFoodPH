@@ -47,7 +47,7 @@ public class OrderSent extends AppCompatActivity {
         SuperGlobals.shouldCheckForUpdatesInUser = false;
         NavigationManager.goToActivity(OrderSent.this, MainActivity.class);
         finish();
-        
+
     }
 
 
