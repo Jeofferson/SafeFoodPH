@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (SuperGlobals.shouldCheckForUpdatesInUser) {
+
+            checkForUpdatesInUser();
+
+        }
+
         prepareBottomNavigationView();
 
     }
@@ -57,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
             SuperGlobals.tabLinkedHashMap.get(SuperGlobals.currentTab).remove(SuperGlobals.tabLinkedHashMap.get(SuperGlobals.currentTab).size() - 1);
 
         }
+
+    }
+
+
+    private void checkForUpdatesInUser() {
+
+
+
 
     }
 

@@ -12,6 +12,8 @@ import java.util.List;
 public class SuperGlobals {
 
 
+    public static boolean shouldCheckForUpdatesInUser = false;
+
     public static String currentTab;
     public static Fragment currentFragment;
 

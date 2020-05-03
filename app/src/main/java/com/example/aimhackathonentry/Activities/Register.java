@@ -176,6 +176,7 @@ public class Register extends AppCompatActivity {
                                 editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
                                 editor.commit();
 
+                                SuperGlobals.shouldCheckForUpdatesInUser = false;
                                 NavigationManager.goToActivity(Register.this, MainActivity.class);
                                 finish();
 

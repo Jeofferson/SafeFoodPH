@@ -76,6 +76,7 @@ public class LogIn extends AppCompatActivity {
             User user = gson.fromJson(json, User.class);
             SuperGlobals.currentUser = user;
 
+            SuperGlobals.shouldCheckForUpdatesInUser = true;
             NavigationManager.goToActivity(LogIn.this, MainActivity.class);
             finish();
 
@@ -175,6 +176,7 @@ public class LogIn extends AppCompatActivity {
                                 editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
                                 editor.commit();
 
+                                SuperGlobals.shouldCheckForUpdatesInUser = false;
                                 NavigationManager.goToActivity(LogIn.this, MainActivity.class);
                                 finish();
 
@@ -198,7 +200,7 @@ public class LogIn extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         showError("Login failed.");
-                        Log.e(Constants.TAG_LOG_IN, error.getMessage());
+                        Log.e(Constants.TAG_LOG_IN, error.toString());
 
                     }
                 }) {
