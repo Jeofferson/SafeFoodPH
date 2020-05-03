@@ -43,7 +43,6 @@ public class FragmentHome extends Fragment {
 
     private View view;
 
-    private Toolbar toolbar;
     private SearchView searchView;
     private RecyclerView recyclerViewProducts;
 
@@ -55,21 +54,10 @@ public class FragmentHome extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        prepareToolbar("SafeFoodPH");
         prepareSearchView();
         prepareRecyclerView();
 
         return view;
-
-    }
-
-
-    private void prepareToolbar(String title) {
-
-        toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)view.getContext()).setSupportActionBar(toolbar);
-
-        ((AppCompatActivity)view.getContext()).getSupportActionBar().setTitle(title);
 
     }
 

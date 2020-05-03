@@ -10,6 +10,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,11 +60,23 @@ public class FragmentProfile extends Fragment {
 
 
     @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.menu_profile_overflow_menu, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+
+    }
+
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
 
-
+            case R.id.btnLogOut:
+                logOut();
+                break;
 
         }
 
@@ -77,6 +91,7 @@ public class FragmentProfile extends Fragment {
         ((AppCompatActivity)view.getContext()).setSupportActionBar(toolbar);
 
         ((AppCompatActivity)view.getContext()).getSupportActionBar().setTitle(title);
+        setHasOptionsMenu(true);
 
     }
 
