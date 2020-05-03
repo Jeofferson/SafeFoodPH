@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                         } catch (JSONException e) {
 
                             Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
-                            Log.e(Constants.TAG_LOG_IN, e.getMessage());
+                            Log.e(Constants.TAG, e.getMessage());
 
                         }
 
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
-                        Log.e(Constants.TAG_LOG_IN, error.toString());
+                        Log.e(Constants.TAG, error.toString());
 
                     }
                 }) {

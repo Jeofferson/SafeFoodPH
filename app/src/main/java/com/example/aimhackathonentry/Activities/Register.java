@@ -189,7 +189,7 @@ public class Register extends AppCompatActivity {
                         } catch (JSONException e) {
 
                             showError("Login failed.");
-                            Log.e(Constants.TAG_LOG_IN, e.getMessage());
+                            Log.e(Constants.TAG, e.getMessage());
 
                         }
 
@@ -200,7 +200,7 @@ public class Register extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         showError("Login failed.");
-                        Log.e(Constants.TAG_LOG_IN, error.getMessage());
+                        Log.e(Constants.TAG, error.getMessage());
 
                     }
                 }) {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,13 +13,31 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.Constants;
+import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -147,7 +166,98 @@ public class PlaceOrder extends AppCompatActivity {
 
     private void placeOrder() {
 
+        hideViewsAction();
 
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                ConstantsVolley.URL_CREATE_ORDER,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            String status = jsonObject.getString("status");
+
+                            if (status.equals("failed")) {
+
+                                showError(jsonObject.getString("errorMessage"));
+
+                            } else if (status.equals("success")) {
+
+                                NavigationManager.goToActivity(PlaceOrder.this, OrderSent.class);
+
+                            } else {
+
+                                showError("Process failed.");
+
+                            }
+
+                        } catch (JSONException e) {
+
+                            showError("Process failed.");
+                            Log.e(Constants.TAG, e.getMessage());
+
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        showError("Process failed.");
+                        Log.e(Constants.TAG, error.getMessage());
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put("productId", String.valueOf(product.getProductId()));
+                params.put("buyerId", String.valueOf(user.getUserId()));
+                params.put("sellerId", String.valueOf(product.getSellerId()));
+                params.put("quantity", String.valueOf(SuperGlobals.orderQuantity));
+                params.put("paymentMethod", SuperGlobals.paymentMethod);
+                params.put("additionalMessage", SuperGlobals.additionalMessage);
+
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(PlaceOrder.this);
+        requestQueue.add(stringRequest);
+
+    }
+
+
+    private void showError(String message) {
+
+        Toast.makeText(PlaceOrder.this, message, Toast.LENGTH_SHORT).show();
+
+        showViewsAction();
+
+    }
+
+
+    private void hideViewsAction() {
+
+        btnPlaceOrder.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
+
+    }
+
+
+    private void showViewsAction() {
+
+        progressBar.setVisibility(View.GONE);
+        btnPlaceOrder.setVisibility(View.VISIBLE);
 
     }
 

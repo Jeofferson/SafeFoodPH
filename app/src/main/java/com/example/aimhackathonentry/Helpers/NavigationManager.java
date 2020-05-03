@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.aimhackathonentry.Activities.MainActivity;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
@@ -17,6 +18,13 @@ public class NavigationManager {
     public static void goToActivity(Context context, Class _class) {
 
         Intent intent = new Intent(context, _class);
+
+        if (_class.equals(MainActivity.class)) {
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        }
+
         context.startActivity(intent);
 
     }

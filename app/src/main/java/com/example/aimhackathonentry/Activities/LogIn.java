@@ -189,7 +189,7 @@ public class LogIn extends AppCompatActivity {
                         } catch (JSONException e) {
 
                             showError("Login failed.");
-                            Log.e(Constants.TAG_LOG_IN, e.getMessage());
+                            Log.e(Constants.TAG, e.getMessage());
 
                         }
 
@@ -200,7 +200,7 @@ public class LogIn extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         showError("Login failed.");
-                        Log.e(Constants.TAG_LOG_IN, error.toString());
+                        Log.e(Constants.TAG, error.toString());
 
                     }
                 }) {

@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.PlaceOrder"></activity>
+        <activity android:name=".Activities.OrderSent"></activity>
+        <activity android:name=".Activities.PlaceOrder" />
         <activity android:name=".Activities.ItemsToTrade" />
         <activity android:name=".Activities.AdditionalMessage" />
         <activity android:name=".Activities.OrderDetails" />
