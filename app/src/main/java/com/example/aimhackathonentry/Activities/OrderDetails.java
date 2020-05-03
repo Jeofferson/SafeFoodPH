@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
 public class OrderDetails extends AppCompatActivity {
@@ -104,7 +105,7 @@ public class OrderDetails extends AppCompatActivity {
 
         btnNext = findViewById(R.id.btnNext);
 
-        Glide.with(OrderDetails.this).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
+        Glide.with(OrderDetails.this).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
         lblPrice.setText(String.format("₱%,.2f each", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));

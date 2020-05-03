@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -107,10 +108,10 @@ public class PlaceOrder extends AppCompatActivity {
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
         progressBar = findViewById(R.id.progressBar);
 
-        Glide.with(PlaceOrder.this).load(user.getDisplayPicture()).into(imgBuyerDisplayPicture);
+        Glide.with(PlaceOrder.this).load(ConstantsVolley.URL_IMAGES + user.getDisplayPicture()).into(imgBuyerDisplayPicture);
         String fullName = String.format("%s %s", user.getFirstName(), user.getLastName());
         lblFullName.setText(fullName);
-        Glide.with(PlaceOrder.this).load(product.getProductDisplayPicture()).into(imgProductDisplayPicture);
+        Glide.with(PlaceOrder.this).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgProductDisplayPicture);
         lblProductName.setText(product.getProductName());
         lblQuantity.setText(String.format("Quantity: x%d", SuperGlobals.orderQuantity));
         lblPaymentMethod.setText("Payment Method: " + SuperGlobals.paymentMethod);

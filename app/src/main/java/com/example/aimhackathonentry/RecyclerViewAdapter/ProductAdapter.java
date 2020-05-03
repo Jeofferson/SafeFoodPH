@@ -16,6 +16,7 @@ import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
+import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
 import java.util.List;
@@ -53,11 +54,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         Product product = productList.get(position);
 
-        Glide.with(context).load(product.getUserDisplayPicture()).into(holder.imgSellerDisplayPicture);
+        Glide.with(context).load(ConstantsVolley.URL_IMAGES + product.getUserDisplayPicture()).into(holder.imgSellerDisplayPicture);
         String fullName = String.format("%s %s", product.getFirstName(), product.getLastName());
         holder.lblFullName.setText(fullName);
 
-        Glide.with(context).load(product.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
+        Glide.with(context).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
         holder.lblProductName.setText(product.getProductName());
         holder.lblDescription.setText(product.getDescription());
         holder.lblPrice.setText(String.format("₱%,.2f", product.getPrice()));

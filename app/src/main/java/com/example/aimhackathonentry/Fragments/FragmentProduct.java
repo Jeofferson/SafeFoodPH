@@ -22,6 +22,7 @@ import com.example.aimhackathonentry.Activities.OrderDetails;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
 
@@ -110,7 +111,7 @@ public class FragmentProduct extends Fragment {
         btnBuyNow = view.findViewById(R.id.btnBuyNow);
         progressBar2 = view.findViewById(R.id.progressBar2);
 
-        Glide.with(view.getContext()).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
+        Glide.with(view.getContext()).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
         lblPrice.setText(String.format("₱%,.2f each", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));

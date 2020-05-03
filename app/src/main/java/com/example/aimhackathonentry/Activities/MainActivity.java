@@ -5,22 +5,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentCart;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentHome;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentProfile;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
+import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
+import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
+import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private User user;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     private FragmentManager fragmentManager;
 
@@ -32,13 +58,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        user = SuperGlobals.currentUser;
+
         if (SuperGlobals.shouldCheckForUpdatesInUser) {
 
             checkForUpdatesInUser();
 
-        }
+        } else {
 
-        prepareBottomNavigationView();
+            prepareBottomNavigationView();
+
+        }
 
     }
 
@@ -69,8 +102,94 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkForUpdatesInUser() {
 
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                ConstantsVolley.URL_CHECK_FOR_UPDATES_IN_USER,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        try {
 
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            String status = jsonObject.getString("status");
+
+                            if (status.equals("failed")) {
+
+                                Toast.makeText(MainActivity.this, jsonObject.getString("errorMessage"), Toast.LENGTH_SHORT).show();
+
+                            } else if (status.equals("success")) {
+
+                                int userId = jsonObject.getInt("userId");
+                                String username = jsonObject.getString("username");
+                                String password = jsonObject.getString("password");
+                                String firstName = jsonObject.getString("firstName");
+                                String lastName = jsonObject.getString("lastName");
+                                String displayPicture = jsonObject.getString("displayPicture");
+                                String city = jsonObject.getString("city");
+                                String province = jsonObject.getString("province");
+
+                                User user = new User(
+                                        userId,
+                                        username,
+                                        password,
+                                        firstName,
+                                        lastName,
+                                        displayPicture,
+                                        city,
+                                        province
+                                );
+
+                                SuperGlobals.currentUser = user;
+
+                                Gson gson = new Gson();
+                                String json = gson.toJson(user);
+                                editor.putString(ConstantsSharedPreferences.CURRENT_USER, json);
+                                editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
+                                editor.commit();
+
+                                prepareBottomNavigationView();
+
+                            } else {
+
+                                Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        } catch (JSONException e) {
+
+                            Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
+                            Log.e(Constants.TAG_LOG_IN, e.getMessage());
+
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
+                        Log.e(Constants.TAG_LOG_IN, error.toString());
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put("userId", String.valueOf(user.getUserId()));
+
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        requestQueue.add(stringRequest);
 
     }
 
