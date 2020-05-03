@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.aimhackathonentry.Activities.LogIn;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
 import com.example.aimhackathonentry.R;
@@ -76,7 +77,7 @@ public class FragmentProfile extends Fragment {
         editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "");
         editor.commit();
 
-        NavigationManager.goToLogIn(getContext());
+        NavigationManager.goToActivity(getContext(), LogIn.class);
         getActivity().finish();
 
     }

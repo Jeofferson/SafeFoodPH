@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
-public class PaymentMethod extends AppCompatActivity {
+public class OrderDetails extends AppCompatActivity {
 
 
     private Product product;
@@ -49,7 +48,7 @@ public class PaymentMethod extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_method);
+        setContentView(R.layout.activity_order_details);
 
         product = SuperGlobals.currentProduct;
 
@@ -105,7 +104,7 @@ public class PaymentMethod extends AppCompatActivity {
 
         btnNext = findViewById(R.id.btnNext);
 
-        Glide.with(PaymentMethod.this).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
+        Glide.with(OrderDetails.this).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
         lblPrice.setText(String.format("₱%,.2f each", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
@@ -166,8 +165,19 @@ public class PaymentMethod extends AppCompatActivity {
     private void next() {
 
         SuperGlobals.orderQuantity = Integer.parseInt(lblOrderQuantity.getText().toString().trim());
-        SuperGlobals.paymentMethod = String.valueOf(((RadioButton) findViewById(radioGroupPaymentMethod.getCheckedRadioButtonId())).getText());
+        String paymentMethod = String.valueOf(((RadioButton) findViewById(radioGroupPaymentMethod.getCheckedRadioButtonId())).getText());
+        SuperGlobals.paymentMethod = paymentMethod;
 
+        switch (paymentMethod) {
+
+            case "Cash":
+                NavigationManager.goToActivity(OrderDetails.this, AdditionalMessage.class);
+                break;
+
+            case "Trade":
+                break;
+
+        }
 
     }
 

@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.Activities.OrderDetails;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
@@ -147,7 +148,7 @@ public class FragmentProduct extends Fragment {
 
     private void buyNow() {
 
-        NavigationManager.goToPaymentMethod(view.getContext());
+        NavigationManager.goToActivity(view.getContext(), OrderDetails.class);
 
     }
 

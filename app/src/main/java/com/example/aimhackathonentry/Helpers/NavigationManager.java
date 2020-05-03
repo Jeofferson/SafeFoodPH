@@ -2,43 +2,39 @@ package com.example.aimhackathonentry.Helpers;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
-import com.example.aimhackathonentry.Activities.LogIn;
-import com.example.aimhackathonentry.Activities.MainActivity;
-import com.example.aimhackathonentry.Activities.PaymentMethod;
-import com.example.aimhackathonentry.Activities.Register;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
+import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+
 
 public class NavigationManager {
 
 
-    public static void goToRegister(Context context) {
+    public static void goToActivity(Context context, Class _class) {
 
-        Intent intent = new Intent(context, Register.class);
+        Intent intent = new Intent(context, _class);
         context.startActivity(intent);
 
     }
 
 
-    public static void goToLogIn(Context context) {
+    public static void goToFragment(View view, String fromTab, Fragment fragment) {
 
-        Intent intent = new Intent(context, LogIn.class);
-        context.startActivity(intent);
+        SuperGlobals.currentTab = fromTab;
+        SuperGlobals.tabLinkedHashMap.get(fromTab).add(fragment);
 
-    }
+        ((FragmentActivity) view.getContext()).getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentContainer, fragment)
+                .hide(SuperGlobals.currentFragment)
+                .show(fragment)
+                .commit();
 
-
-    public static void goToMainActivity(Context context) {
-
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
-
-    }
-
-
-    public static void goToPaymentMethod(Context context) {
-
-        Intent intent = new Intent(context, PaymentMethod.class);
-        context.startActivity(intent);
+        SuperGlobals.currentFragment = fragment;
 
     }
 

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Fragments.FragmentProduct;
-import com.example.aimhackathonentry.Helpers.FragmentNavigationManager;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
@@ -110,7 +110,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         private void goToFragmentProduct(View view) {
 
             SuperGlobals.currentProduct = productList.get(getAdapterPosition());
-            FragmentNavigationManager.goToFragment(view, Constants.HOME, new FragmentProduct());
+            NavigationManager.goToFragment(view, Constants.HOME, new FragmentProduct());
 
         }
 

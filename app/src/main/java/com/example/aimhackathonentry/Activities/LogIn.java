@@ -76,7 +76,7 @@ public class LogIn extends AppCompatActivity {
             User user = gson.fromJson(json, User.class);
             SuperGlobals.currentUser = user;
 
-            NavigationManager.goToMainActivity(LogIn.this);
+            NavigationManager.goToActivity(LogIn.this, MainActivity.class);
             finish();
 
         }
@@ -175,7 +175,7 @@ public class LogIn extends AppCompatActivity {
                                 editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
                                 editor.commit();
 
-                                NavigationManager.goToMainActivity(LogIn.this);
+                                NavigationManager.goToActivity(LogIn.this, MainActivity.class);
                                 finish();
 
                             } else {
@@ -249,7 +249,7 @@ public class LogIn extends AppCompatActivity {
 
     private void register() {
 
-        NavigationManager.goToRegister(LogIn.this);
+        NavigationManager.goToActivity(LogIn.this, Register.class);
 
     }
 
