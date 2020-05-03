@@ -12,8 +12,9 @@
 
     <ScrollView
         android:layout_below="@id/toolbar"
+        android:layout_above="@id/layoutActionButtons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,6 +28,17 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:id="@+id/lblProductName"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="Product Name"/>
 
             <LinearLayout
                 android:layout_marginStart="20dp"
@@ -93,6 +105,7 @@
     </ScrollView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/layoutActionButtons"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

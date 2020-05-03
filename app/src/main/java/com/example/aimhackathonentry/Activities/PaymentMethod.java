@@ -23,6 +23,7 @@ public class PaymentMethod extends AppCompatActivity {
     private Toolbar toolbar;
 
     private ImageView imgDisplayPicture;
+    private TextView lblProductName;
     private TextView lblPrice;
     private TextView lblQuantity;
     private TextView lblDescription;
@@ -35,7 +36,7 @@ public class PaymentMethod extends AppCompatActivity {
 
         product = SuperGlobals.currentProduct;
 
-        setUpToolbar(product.getProductName());
+        setUpToolbar("Order Details");
 
         updateViews();
 
@@ -73,11 +74,13 @@ public class PaymentMethod extends AppCompatActivity {
     private void updateViews() {
 
         imgDisplayPicture = findViewById(R.id.imgDisplayPicture);
+        lblProductName = findViewById(R.id.lblProductName);
         lblPrice = findViewById(R.id.lblPrice);
         lblQuantity = findViewById(R.id.lblQuantity);
         lblDescription = findViewById(R.id.lblDescription);
 
         Glide.with(PaymentMethod.this).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
+        lblProductName.setText(product.getProductName());
         lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());

@@ -34,6 +34,7 @@ public class FragmentProduct extends Fragment {
     private Toolbar toolbar;
 
     private ImageView imgDisplayPicture;
+    private TextView lblProductName;
     private TextView lblPrice;
     private TextView lblQuantity;
     private TextView lblDescription;
@@ -56,7 +57,7 @@ public class FragmentProduct extends Fragment {
         product = SuperGlobals.currentProduct;
 
         updateViews();
-        setUpToolbar(product.getProductName());
+        setUpToolbar("Product Details");
 
         return view;
 
@@ -95,6 +96,7 @@ public class FragmentProduct extends Fragment {
     private void updateViews() {
 
         imgDisplayPicture = view.findViewById(R.id.imgDisplayPicture);
+        lblProductName = view.findViewById(R.id.lblProductName);
         lblPrice = view.findViewById(R.id.lblPrice);
         lblQuantity = view.findViewById(R.id.lblQuantity);
         lblDescription = view.findViewById(R.id.lblDescription);
@@ -108,6 +110,7 @@ public class FragmentProduct extends Fragment {
         progressBar2 = view.findViewById(R.id.progressBar2);
 
         Glide.with(view.getContext()).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
+        lblProductName.setText(product.getProductName());
         lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
