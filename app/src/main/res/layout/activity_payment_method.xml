@@ -80,6 +80,96 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:text="Quantity"/>
+
+                <ImageButton
+                    android:id="@+id/btnDecreaseQuantity"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground"/>
+
+                <TextView
+                    android:id="@+id/lblOrderQuantity"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:text="1"/>
+
+                <ImageButton
+                    android:id="@+id/btnIncreaseQuantity"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lblOrderPrice"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="Order Price: 1,200.00"/>
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroupPaymentMethod"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/radioButtonCash">
+
+            <RadioButton
+                android:id="@+id/radioButtonCash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Cash"/>
+
+            <RadioButton
+                android:id="@+id/radioButtonTrade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Trade"/>
+
+        </RadioGroup>
+
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -88,7 +178,8 @@
         android:layout_height="wrap_content">
 
         <Button
-             android:layout_margin="10dp"
+            android:id="@+id/btnNext"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/my_button_1"

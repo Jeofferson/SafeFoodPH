@@ -111,7 +111,7 @@ public class FragmentProduct extends Fragment {
 
         Glide.with(view.getContext()).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
-        lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
+        lblPrice.setText(String.format("₱%,.2f each", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
         String fullName = String.format("%s %s", product.getFirstName(), product.getLastName());

@@ -18,6 +18,9 @@ public class SuperGlobals {
     public static User currentUser;
     public static Product currentProduct;
 
+    public static int orderQuantity;
+    public static String paymentMethod;
+
     public static LinkedHashMap<String, ArrayList<Fragment>> tabLinkedHashMap = new LinkedHashMap<>();
 
     public static List<Product> productList = new ArrayList<>();

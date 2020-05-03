@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.PaymentMethod"></activity>
+        <activity android:name=".Activities.ItemsToTrade"></activity>
+        <activity android:name=".Activities.AdditionalMessage" />
+        <activity android:name=".Activities.PaymentMethod" />
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.Register" />
         <activity android:name=".Activities.LogIn">

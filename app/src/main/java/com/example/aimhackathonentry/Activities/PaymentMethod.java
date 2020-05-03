@@ -7,8 +7,14 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.ObjectModels.Product;
@@ -18,7 +24,9 @@ import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 public class PaymentMethod extends AppCompatActivity {
 
 
-    Product product;
+    private Product product;
+
+    private int orderQuantity;
 
     private Toolbar toolbar;
 
@@ -27,6 +35,15 @@ public class PaymentMethod extends AppCompatActivity {
     private TextView lblPrice;
     private TextView lblQuantity;
     private TextView lblDescription;
+
+    private ImageButton btnDecreaseQuantity;
+    private TextView lblOrderQuantity;
+    private ImageButton btnIncreaseQuantity;
+    private TextView lblOrderPrice;
+
+    private RadioGroup radioGroupPaymentMethod;
+
+    private Button btnNext;
 
 
     @Override
@@ -79,11 +96,78 @@ public class PaymentMethod extends AppCompatActivity {
         lblQuantity = findViewById(R.id.lblQuantity);
         lblDescription = findViewById(R.id.lblDescription);
 
+        btnDecreaseQuantity = findViewById(R.id.btnDecreaseQuantity);
+        lblOrderQuantity = findViewById(R.id.lblOrderQuantity);
+        btnIncreaseQuantity = findViewById(R.id.btnIncreaseQuantity);
+        lblOrderPrice = findViewById(R.id.lblOrderPrice);
+
+        radioGroupPaymentMethod = findViewById(R.id.radioGroupPaymentMethod);
+
+        btnNext = findViewById(R.id.btnNext);
+
         Glide.with(PaymentMethod.this).load(product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
-        lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
+        lblPrice.setText(String.format("₱%,.2f each", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
+
+        lblOrderPrice.setText(String.format("Order Price: ₱%,.2f", product.getPrice()));
+
+        btnDecreaseQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                modifyQuantity(false);
+
+            }
+        });
+
+        btnIncreaseQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                modifyQuantity(true);
+
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                next();
+
+            }
+        });
+
+    }
+
+
+    private void modifyQuantity(boolean doIncrease) {
+
+        orderQuantity = Integer.parseInt(lblOrderQuantity.getText().toString().trim());
+
+        if (!doIncrease) {
+
+            orderQuantity = Math.max((orderQuantity - 1), 1);
+
+        } else {
+
+            orderQuantity = Math.min((orderQuantity + 1), product.getQuantity());
+
+        }
+
+        lblOrderQuantity.setText(String.valueOf(orderQuantity));
+        lblOrderPrice.setText(String.format("Order Price: ₱%,.2f", product.getPrice() * orderQuantity));
+
+    }
+
+
+    private void next() {
+
+        SuperGlobals.orderQuantity = Integer.parseInt(lblOrderQuantity.getText().toString().trim());
+        SuperGlobals.paymentMethod = String.valueOf(((RadioButton) findViewById(radioGroupPaymentMethod.getCheckedRadioButtonId())).getText());
+
 
     }
 
