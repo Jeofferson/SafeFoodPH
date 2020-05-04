@@ -15,20 +15,26 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Activities.LogIn;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
+import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class FragmentProfile extends Fragment {
 
 
-    String userFullName;
+    private User user;
+
+    private String userFullName;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -37,6 +43,7 @@ public class FragmentProfile extends Fragment {
 
     private Toolbar toolbar;
 
+    private CircleImageView imgUserDisplayPicture;
     private TextView lblUserFullName;
 
 
@@ -46,6 +53,8 @@ public class FragmentProfile extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        user = SuperGlobals.currentUser;
 
         sharedPreferences = getActivity().getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -64,7 +73,7 @@ public class FragmentProfile extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
         inflater.inflate(R.menu.menu_profile_overflow_menu, menu);
-        super.onCreateOptionsMenu(menu,inflater);
+        super.onCreateOptionsMenu(menu, inflater);
 
     }
 
@@ -91,6 +100,7 @@ public class FragmentProfile extends Fragment {
         ((AppCompatActivity)view.getContext()).setSupportActionBar(toolbar);
 
         ((AppCompatActivity)view.getContext()).getSupportActionBar().setTitle(title);
+
         setHasOptionsMenu(true);
 
     }
@@ -98,9 +108,11 @@ public class FragmentProfile extends Fragment {
 
     private void updateViews(View view) {
 
+        imgUserDisplayPicture = view.findViewById(R.id.imgUserDisplayPicture);
         lblUserFullName = view.findViewById(R.id.lblUserFullName);
 
-        userFullName = String.format("%s %s", SuperGlobals.currentUser.getFirstName(), SuperGlobals.currentUser.getLastName());
+        Glide.with(view.getContext()).load(ConstantsVolley.URL_IMAGES + user.getDisplayPicture()).into(imgUserDisplayPicture);
+        userFullName = String.format("%s %s", user.getFirstName(), user.getLastName());
         lblUserFullName.setText(userFullName);
 
     }

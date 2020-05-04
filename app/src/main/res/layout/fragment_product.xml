@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray1"
     tools:context=".Fragments.FragmentProduct">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,9 +24,9 @@
 
             <ImageView
                 android:id="@+id/imgDisplayPicture"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="250dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"/>
 
@@ -33,17 +34,17 @@
                 android:id="@+id/lblProductName"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:textColor="@color/theme4"
                 android:text="Product Name"/>
 
             <LinearLayout
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -57,7 +58,8 @@
                     android:layout_weight="1"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:text="Price: 1,200.00"/>
+                    android:textColor="@color/theme4"
+                    android:text="1,200.00 each"/>
 
                 <TextView
                     android:id="@+id/lblQuantity"
@@ -74,7 +76,7 @@
                 android:id="@+id/lblDescription"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dummyText"/>
@@ -128,8 +130,8 @@
                 <Button
                     android:id="@+id/btnAddToCart"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/my_button_1"
+                    android:layout_height="40dp"
+                    android:background="@drawable/my_button_thin_dark"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:text="Add to Cart"/>
@@ -152,8 +154,8 @@
                 <Button
                     android:id="@+id/btnBuyNow"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/my_button_1"
+                    android:layout_height="40dp"
+                    android:background="@drawable/my_button_thin"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:text="Buy Now"/>

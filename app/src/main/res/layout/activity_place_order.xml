@@ -190,7 +190,7 @@
                 android:id="@+id/btnPlaceOrder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/my_button_1"
+                android:background="@drawable/my_button"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:text="Place Order"/>

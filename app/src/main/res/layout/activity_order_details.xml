@@ -23,15 +23,18 @@
 
             <ImageView
                 android:id="@+id/imgDisplayPicture"
+                android:layout_gravity="center_vertical"
                 android:layout_margin="20dp"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"/>
 
             <LinearLayout
+                android:layout_gravity="center_vertical"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -39,27 +42,26 @@
 
                 <TextView
                     android:id="@+id/lblProductName"
-                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
+                    android:textColor="@color/theme4"
                     android:text="Product Name"/>
 
                 <TextView
                     android:id="@+id/lblPrice"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
+                    android:textColor="@color/theme4"
                     android:text="Price: 1,200.00"/>
 
                 <TextView
                     android:id="@+id/lblQuantity"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
@@ -81,12 +83,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/gray1"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -96,37 +100,54 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:text="Quantity"/>
 
-                <ImageButton
-                    android:id="@+id/btnDecreaseQuantity"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/lblOrderQuantity"
-                    android:layout_gravity="center_vertical"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:text="1"/>
+                    <ImageButton
+                        android:id="@+id/btnDecreaseQuantity"
+                        android:layout_gravity="center_vertical"
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/my_stepper_left"
+                        android:src="@drawable/minus"/>
 
-                <ImageButton
-                    android:id="@+id/btnIncreaseQuantity"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    <TextView
+                        android:id="@+id/lblOrderQuantity"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="-1dp"
+                        android:layout_marginEnd="-1dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/my_stepper_center"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="1"/>
+
+                    <ImageButton
+                        android:id="@+id/btnIncreaseQuantity"
+                        android:layout_gravity="center_vertical"
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/my_stepper_right"
+                        android:src="@drawable/plus"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -134,7 +155,7 @@
                 android:id="@+id/lblOrderPrice"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
@@ -179,8 +200,8 @@
             android:id="@+id/btnNext"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/my_button_1"
+            android:layout_height="40dp"
+            android:background="@drawable/my_button_thin"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:text="Next"/>

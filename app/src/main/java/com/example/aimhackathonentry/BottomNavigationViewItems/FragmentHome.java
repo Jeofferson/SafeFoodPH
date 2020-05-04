@@ -1,5 +1,6 @@
 package com.example.aimhackathonentry.BottomNavigationViewItems;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,6 +67,9 @@ public class FragmentHome extends Fragment {
 
         searchView = view.findViewById(R.id.searchView);
         searchView.setQueryHint("Search foods...");
+
+        View searchPlate = searchView.findViewById(androidx.appcompat.R.id.search_plate);
+        searchPlate.setBackgroundColor(Color.parseColor("#00000000"));
 
     }
 
