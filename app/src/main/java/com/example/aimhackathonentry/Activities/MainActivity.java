@@ -247,10 +247,10 @@ public class MainActivity extends AppCompatActivity {
                     selectTab(Constants.HOME);
                     return true;
 
-                case R.id.cart:
+//                case R.id.cart:
 //                    item.setIcon(R.drawable.world);
-                    selectTab(Constants.CART);
-                    return true;
+//                    selectTab(Constants.CART);
+//                    return true;
 
                 case R.id.profile:
 //                    item.setIcon(R.drawable.countries);
@@ -324,9 +324,9 @@ public class MainActivity extends AppCompatActivity {
                     reselectTab(Constants.HOME);
                     break;
 
-                case R.id.cart:
-                    reselectTab(Constants.CART);
-                    break;
+//                case R.id.cart:
+//                    reselectTab(Constants.CART);
+//                    break;
 
                 case R.id.profile:
                     reselectTab(Constants.PROFILE);

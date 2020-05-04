@@ -108,7 +108,7 @@ public class OrderDetails extends AppCompatActivity {
 
         Glide.with(OrderDetails.this).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
-        lblPrice.setText(String.format("₱%,.2f each", product.getPrice()));
+        lblPrice.setText(String.format("₱ %,.2f / pcs", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
 

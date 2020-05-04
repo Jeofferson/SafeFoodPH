@@ -119,7 +119,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:textColor="@color/theme5"
+                        android:textColor="@color/theme4"
                         android:text="15,000.00"/>
 
                 </LinearLayout>
@@ -189,8 +189,8 @@
             <Button
                 android:id="@+id/btnPlaceOrder"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/my_button"
+                android:layout_height="40dp"
+                android:background="@drawable/my_button_thin"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:text="Place Order"/>

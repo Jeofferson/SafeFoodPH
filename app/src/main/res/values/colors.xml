@@ -18,5 +18,12 @@
     <color name="theme5">#547A1D</color>
     <color name="theme6">#3B5C0A</color>
 
+    <color name="theme1Transparent">#90C0EC83</color>
+    <color name="theme2Transparent">#90A7E074</color>
+    <color name="theme3Transparent">#9096CC39</color>
+    <color name="theme4Transparent">#906BA32D</color>
+    <color name="theme5Transparent">#90547A1D</color>
+    <color name="theme6Transparent">#903B5C0A</color>
+
     <color name="gray1">#EEEEEE</color>
 </resources>
