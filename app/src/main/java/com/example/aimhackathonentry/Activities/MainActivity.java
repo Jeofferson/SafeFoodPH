@@ -19,10 +19,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentCart;
-import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentHome;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentStore;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentShop;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentProfile;
-import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
@@ -209,15 +208,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareTabs() {
 
-        Fragment fragment = new FragmentHome();
+        Fragment fragment = new FragmentShop();
 
-        SuperGlobals.tabLinkedHashMap.put(Constants.HOME, new ArrayList<>(Arrays.asList(
+        SuperGlobals.tabLinkedHashMap.put(Constants.SHOP, new ArrayList<>(Arrays.asList(
                 fragment
         )));
-        SuperGlobals.tabLinkedHashMap.put(Constants.CART, new ArrayList<Fragment>());
+        SuperGlobals.tabLinkedHashMap.put(Constants.STORE, new ArrayList<Fragment>());
         SuperGlobals.tabLinkedHashMap.put(Constants.PROFILE, new ArrayList<Fragment>());
 
-        SuperGlobals.currentTab = Constants.HOME;
+        SuperGlobals.currentTab = Constants.SHOP;
 
         fragmentManager
                 .beginTransaction()
@@ -225,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                 .show(fragment)
                 .commit();
 
-//        bottomNavigationView.getMenu().getItem(0).setIcon(R.drawable.ic_home_black_24dp);
+        bottomNavigationView.getMenu().getItem(0).setIcon(R.drawable.shop_filled);
 
         SuperGlobals.currentFragment = fragment;
 
@@ -236,24 +235,24 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-//            bottomNavigationView.getMenu().getItem(0).setIcon(R.drawable.home_outline);
-//            bottomNavigationView.getMenu().getItem(1).setIcon(R.drawable.world_outline);
-//            bottomNavigationView.getMenu().getItem(2).setIcon(R.drawable.countries_outline);
+            bottomNavigationView.getMenu().getItem(0).setIcon(R.drawable.shop);
+            bottomNavigationView.getMenu().getItem(1).setIcon(R.drawable.store);
+            bottomNavigationView.getMenu().getItem(2).setIcon(R.drawable.profile);
 
             switch (item.getItemId()) {
 
-                case R.id.home:
-//                    item.setIcon(R.drawable.home);
-                    selectTab(Constants.HOME);
+                case R.id.shop:
+                    item.setIcon(R.drawable.shop_filled);
+                    selectTab(Constants.SHOP);
                     return true;
 
-//                case R.id.cart:
-//                    item.setIcon(R.drawable.world);
-//                    selectTab(Constants.CART);
-//                    return true;
+                case R.id.store:
+                    item.setIcon(R.drawable.store_filled);
+                    selectTab(Constants.STORE);
+                    return true;
 
                 case R.id.profile:
-//                    item.setIcon(R.drawable.countries);
+                    item.setIcon(R.drawable.profile_filled);
                     selectTab(Constants.PROFILE);
                     return true;
 
@@ -274,12 +273,12 @@ public class MainActivity extends AppCompatActivity {
 
             switch (tabName) {
 
-                case Constants.HOME:
-                    SuperGlobals.tabLinkedHashMap.get(tabName).add(new FragmentHome());
+                case Constants.SHOP:
+                    SuperGlobals.tabLinkedHashMap.get(tabName).add(new FragmentShop());
                     break;
 
-                case Constants.CART:
-                    SuperGlobals.tabLinkedHashMap.get(tabName).add(new FragmentCart());
+                case Constants.STORE:
+                    SuperGlobals.tabLinkedHashMap.get(tabName).add(new FragmentStore());
                     break;
 
                 case Constants.PROFILE:
@@ -320,13 +319,13 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
 
-                case R.id.home:
-                    reselectTab(Constants.HOME);
+                case R.id.shop:
+                    reselectTab(Constants.SHOP);
                     break;
 
-//                case R.id.cart:
-//                    reselectTab(Constants.CART);
-//                    break;
+                case R.id.store:
+                    reselectTab(Constants.STORE);
+                    break;
 
                 case R.id.profile:
                     reselectTab(Constants.PROFILE);

@@ -111,7 +111,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         private void goToFragmentProduct(View view) {
 
             SuperGlobals.currentProduct = productList.get(getAdapterPosition());
-            NavigationManager.goToFragment(view, Constants.HOME, new FragmentProduct());
+            NavigationManager.goToFragment(view, Constants.SHOP, new FragmentProduct());
 
         }
 

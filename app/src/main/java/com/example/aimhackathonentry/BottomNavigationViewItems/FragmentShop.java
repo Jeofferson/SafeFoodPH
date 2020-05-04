@@ -3,9 +3,7 @@ package com.example.aimhackathonentry.BottomNavigationViewItems;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class FragmentHome extends Fragment {
+public class FragmentShop extends Fragment {
 
 
     private ProductAdapter productAdapter;
@@ -48,12 +46,12 @@ public class FragmentHome extends Fragment {
     private RecyclerView recyclerViewProducts;
 
 
-    public FragmentHome() {}
+    public FragmentShop() {}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_shop, container, false);
 
         prepareSearchView();
         prepareRecyclerView();
