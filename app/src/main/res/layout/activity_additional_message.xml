@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray1"
     tools:context=".Activities.AdditionalMessage">
 
     <include
@@ -21,19 +22,25 @@
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray1"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imgDisplayPicture"
+            <androidx.cardview.widget.CardView
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"/>
+                app:cardCornerRadius="10dp">
 
-            <LinearLayout
+                <ImageView
+                    android:id="@+id/imgDisplayPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -41,42 +48,50 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                app:cardCornerRadius="10dp">
 
-                <TextView
-                    android:id="@+id/lblProductName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Product Name"/>
-
-                <TextView
-                    android:id="@+id/lblDescription"
-                    android:layout_marginEnd="20dp"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="3"
-                    android:ellipsize="end"
-                    android:text="@string/dummyText"/>
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/lblFullName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Jeofferson Dela Peña"/>
+                    <TextView
+                        android:id="@+id/lblProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Product Name"/>
 
-                <TextView
-                    android:id="@+id/lblAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Dagupan City, Pangasinan"/>
+                    <TextView
+                        android:id="@+id/lblDescription"
+                        android:layout_marginEnd="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="@string/dummyText"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/lblFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Jeofferson Dela Peña"/>
+
+                    <TextView
+                        android:id="@+id/lblAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Dagupan City, Pangasinan"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
@@ -90,26 +105,31 @@
             android:textStyle="bold"
             android:text="Message Here"/>
 
-        <LinearLayout
-            android:id="@+id/layoutAdditionalMessage"
+        <androidx.cardview.widget.CardView
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/gray1">
+            android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txtAdditionalMessage"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
+            <LinearLayout
+                android:id="@+id/layoutAdditionalMessage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="Include message for the seller (Optional)..."/>
+                android:layout_height="match_parent">
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/txtAdditionalMessage"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Include message for the seller (Optional)..."/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
