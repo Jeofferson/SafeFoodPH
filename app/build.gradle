@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -58,8 +59,11 @@ dependencies {
     // RatingBar
     implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
 
-
+    // Collapsing TabLayout
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
     implementation 'com.nineoldandroids:library:2.4.0'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }

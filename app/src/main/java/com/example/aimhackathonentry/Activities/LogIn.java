@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aimhackathonentry.DummyData.Entities;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
 import com.example.aimhackathonentry.ObjectModels.User;
@@ -69,18 +70,25 @@ public class LogIn extends AppCompatActivity {
 
     private void checkedIfLoggedIn() {
 
-        if (sharedPreferences.getString(ConstantsSharedPreferences.ONLINE_STATUS, "").equals("Online")) {
+        // Dummy data
+//        if (sharedPreferences.getString(ConstantsSharedPreferences.ONLINE_STATUS, "").equals("Online")) {
+//
+//            Gson gson = new Gson();
+//            String json = sharedPreferences.getString(ConstantsSharedPreferences.CURRENT_USER, "");
+//            User user = gson.fromJson(json, User.class);
+//            SuperGlobals.currentUser = user;
+//
+//            SuperGlobals.shouldCheckForUpdatesInUser = true;
+//            NavigationManager.goToActivity(LogIn.this, MainActivity.class);
+//            finish();
+//
+//        }
 
-            Gson gson = new Gson();
-            String json = sharedPreferences.getString(ConstantsSharedPreferences.CURRENT_USER, "");
-            User user = gson.fromJson(json, User.class);
-            SuperGlobals.currentUser = user;
+        SuperGlobals.currentUser = Entities.userList.get(0);
 
-            SuperGlobals.shouldCheckForUpdatesInUser = true;
-            NavigationManager.goToActivity(LogIn.this, MainActivity.class);
-            finish();
-
-        }
+        SuperGlobals.shouldCheckForUpdatesInUser = false;
+        NavigationManager.goToActivity(LogIn.this, MainActivity.class);
+        finish();
 
     }
 

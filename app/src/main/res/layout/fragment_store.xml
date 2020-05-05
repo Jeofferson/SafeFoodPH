@@ -11,13 +11,31 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <com.flaviofaria.kenburnsview.KenBurnsView
-            android:id="@+id/imageView_header"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="226.5dp"
-            android:contentDescription="@null"
-            android:src="@drawable/shop_wallpaper"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            app:layout_scrollFlags="scroll">
+
+            <com.flaviofaria.kenburnsview.KenBurnsView
+                android:id="@+id/imageView_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:src="@drawable/shop_wallpaper"/>
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blackTransparent"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:text="Play4Tech"/>
+
+        </RelativeLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
@@ -25,7 +43,8 @@
             android:layout_height="@dimen/tab_height"
             android:layout_gravity="bottom"
             app:tabGravity="center"
-            app:tabMode="fixed"/>
+            app:tabMode="fixed"
+            app:layout_scrollFlags="enterAlways"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

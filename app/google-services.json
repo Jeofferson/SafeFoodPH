@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "50321024618",
+    "firebase_url": "https://safefoodph.firebaseio.com",
+    "project_id": "safefoodph",
+    "storage_bucket": "safefoodph.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50321024618:android:51c3f83bb0f99b7ff1cc13",
+        "android_client_info": {
+          "package_name": "com.example.aimhackathonentry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50321024618-rnan1alshno5ljg0ebbls9mhikq1aqt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMexA_yJO9Ap6ahu6BExVsjF2YZ0S5Frs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50321024618-rnan1alshno5ljg0ebbls9mhikq1aqt7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
