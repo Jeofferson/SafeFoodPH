@@ -17,6 +17,10 @@ public class SuperGlobals {
     public static String currentTab;
     public static Fragment currentFragment;
 
+    public static Fragment tab1;
+    public static Fragment tab2;
+    public static Fragment tab3;
+
     public static User currentUser;
     public static Product currentProduct;
 
