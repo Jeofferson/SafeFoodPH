@@ -15,7 +15,6 @@ import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 import com.example.aimhackathonentry.Tabs.TabAbout;
 import com.example.aimhackathonentry.Tabs.TabDashboard;
-import com.example.aimhackathonentry.Tabs.TabForSale;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
@@ -50,7 +49,7 @@ public class FragmentStore extends Fragment {
 
         SuperGlobals.tab1 = new TabDashboard();
         SuperGlobals.tab2 = new FragmentShop();
-        SuperGlobals.tab3 = new TabDashboard();
+        SuperGlobals.tab3 = new TabAbout();
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(((FragmentActivity) view.getContext()).getSupportFragmentManager(), 0);
         viewPagerAdapter.addTab(SuperGlobals.tab1, "Dashboard");

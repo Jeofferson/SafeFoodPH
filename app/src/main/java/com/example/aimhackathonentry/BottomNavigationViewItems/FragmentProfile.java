@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Activities.LogIn;
@@ -72,11 +73,13 @@ public class FragmentProfile extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
+        setUpToolbar("Profile");
+
         inflater.inflate(R.menu.menu_profile_overflow_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
 
     }
-
+    
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -97,10 +100,9 @@ public class FragmentProfile extends Fragment {
     private void setUpToolbar(String title) {
 
         toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)view.getContext()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
-        ((AppCompatActivity)view.getContext()).getSupportActionBar().setTitle(title);
-
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
         setHasOptionsMenu(true);
 
     }
@@ -120,9 +122,9 @@ public class FragmentProfile extends Fragment {
 
     private void logOut() {
 
-        editor.putString(ConstantsSharedPreferences.CURRENT_USER, "");
-        editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "");
-        editor.commit();
+//        editor.putString(ConstantsSharedPreferences.CURRENT_USER, "");
+//        editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "");
+//        editor.commit();
 
         NavigationManager.goToActivity(getContext(), LogIn.class);
         getActivity().finish();

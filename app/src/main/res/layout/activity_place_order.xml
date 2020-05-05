@@ -175,7 +175,14 @@
 
     </LinearLayout>
 
+    <View
+        android:background="@drawable/drop_shadow_above"
+        android:layout_above="@id/layoutPlaceOrder"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/layoutPlaceOrder"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

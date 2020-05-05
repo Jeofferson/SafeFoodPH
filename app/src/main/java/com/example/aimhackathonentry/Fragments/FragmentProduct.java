@@ -74,6 +74,8 @@ public class FragmentProduct extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        
+        setUpToolbar("Product Details");
 
         inflater.inflate(R.menu.menu_cart_overflow_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);

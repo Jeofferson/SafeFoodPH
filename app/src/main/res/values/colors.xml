@@ -6,7 +6,7 @@
 
     <color name="colorPrimary">@color/theme4</color>
     <color name="colorPrimaryDark">@color/theme6</color>
-    <color name="colorAccent">@color/theme1</color>
+    <color name="colorAccent">@color/brown2</color>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
@@ -17,6 +17,9 @@
     <color name="theme4">#6BA32D</color>
     <color name="theme5">#547A1D</color>
     <color name="theme6">#3B5C0A</color>
+
+    <color name="brown1">#EED3AA</color>
+    <color name="brown2">#A07D67</color>
 
     <color name="gray1">#EEEEEE</color>
 
