@@ -25,11 +25,12 @@
             android:orientation="horizontal">
 
             <TextView
+                android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/theme4"
                 android:text="Anonymous"/>
@@ -107,9 +108,9 @@
             android:id="@+id/lblDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="3"
             android:ellipsize="end"
-            android:text="@string/dummyText"/>
+            android:maxLines="3"
+            android:text="@string/dummyText" />
 
         <TextView
             android:layout_gravity="end"

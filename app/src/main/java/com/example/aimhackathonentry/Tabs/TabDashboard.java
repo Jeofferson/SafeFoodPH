@@ -3,14 +3,19 @@ package com.example.aimhackathonentry.Tabs;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.aimhackathonentry.DummyData.Entities;
+import com.example.aimhackathonentry.ObjectModels.Feedback;
 import com.example.aimhackathonentry.R;
-import com.example.aimhackathonentry.SessionVariables.Constants;
+import com.example.aimhackathonentry.RecyclerViewAdapter.FeedbackAdapter;
+import com.example.aimhackathonentry.RecyclerViewAdapter.ProductAdapter;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -18,22 +23,22 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class TabDashboard extends Fragment {
 
 
+    private FeedbackAdapter feedbackAdapter;
+
     private View view;
 
     private LineChart lineChartTransactions;
+
+    private RecyclerView recyclerViewFeedbacks;
 
 
     public TabDashboard() {}
@@ -41,9 +46,11 @@ public class TabDashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_tab_dashboard, container, false);
+        view = inflater.inflate(R.layout.tab_dashboard, container, false);
 
         prepareLineChartView();
+
+        prepareRecyclerView();
 
         return view;
 
@@ -165,5 +172,33 @@ public class TabDashboard extends Fragment {
         return randomNum;
 
     }
+
+
+    private void prepareRecyclerView() {
+
+        recyclerViewFeedbacks = view.findViewById(R.id.recyclerViewFeedbacks);
+        recyclerViewFeedbacks.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerViewFeedbacks.setNestedScrollingEnabled(false);
+
+        queryFeedbacks();
+
+    }
+
+
+    private void queryFeedbacks() {
+
+        SuperGlobals.feedbackList = Entities.feedbackList;
+        updateRecyclerView();
+
+    }
+
+
+    private void updateRecyclerView() {
+
+        feedbackAdapter = new FeedbackAdapter(SuperGlobals.feedbackList);
+        recyclerViewFeedbacks.setAdapter(feedbackAdapter);
+
+    }
+
 
 }
