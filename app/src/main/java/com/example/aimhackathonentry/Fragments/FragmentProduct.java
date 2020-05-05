@@ -105,7 +105,6 @@ public class FragmentProduct extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
-        setHasOptionsMenu(true);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
 
