@@ -1,5 +1,6 @@
 package com.example.aimhackathonentry.DummyData;
 
+import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.ObjectModels.Feedback;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.User;
@@ -42,6 +43,16 @@ public class Entities {
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/user_display_picture%2Fjeofferson.jpg?alt=media&token=a5e1bb2f-5951-49a1-8fc4-a6163590fc0a",
                     "San Fabian",
                     "Pangasinan"
+            )
+    ));
+
+
+    // Category
+    public static List<Category> categoryList = new ArrayList<>(Arrays.asList(
+            new Category(
+                    0,
+                    "Fruits and Vegetbles",
+                    ""
             )
     ));
 

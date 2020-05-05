@@ -36,6 +36,7 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
         View view = LayoutInflater.from(context).inflate(R.layout.row_feedback, parent, false);
 
         return new FeedbackViewHolder(view);
+
     }
 
 
