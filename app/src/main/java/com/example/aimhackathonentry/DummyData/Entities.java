@@ -4,11 +4,30 @@ import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Entities {
+
+
+    public static int[][][] sales = {
+            {
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0},
+            }
+    };
 
 
     // User

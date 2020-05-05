@@ -28,4 +28,7 @@
     <color name="theme4Transparent">#906BA32D</color>
     <color name="theme5Transparent">#90547A1D</color>
     <color name="theme6Transparent">#903B5C0A</color>
+
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
 </resources>

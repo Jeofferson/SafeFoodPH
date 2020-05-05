@@ -9,5 +9,7 @@ public class Constants {
     public static final String STORE = "Store";
     public static final String PROFILE = "Profile";
 
+    public static final int ANIMATION_DURATION = 2000;
+
 
 }
