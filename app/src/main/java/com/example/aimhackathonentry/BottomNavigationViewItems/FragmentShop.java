@@ -26,19 +26,25 @@ import com.example.aimhackathonentry.DummyData.Entities;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.RecyclerViewAdapter.ProductAdapter;
+import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 public class FragmentShop extends Fragment {
 
+
+    private List<Product> productList;
 
     private ProductAdapter productAdapter;
 
@@ -54,6 +60,8 @@ public class FragmentShop extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_shop, container, false);
+
+        productList = SuperGlobals.currentTab.equals(Constants.SHOP) ? new ArrayList<>(SuperGlobals.productList) : new ArrayList<>(SuperGlobalsInstanceForMyStoreShop.productList);
 
         prepareSearchView();
         prepareRecyclerView();
@@ -86,7 +94,7 @@ public class FragmentShop extends Fragment {
 
     private void queryProducts() {
 
-        SuperGlobals.productList.clear();
+        productList.clear();
 
 //        StringRequest stringRequest = new StringRequest(
 //                Request.Method.POST,
@@ -162,7 +170,7 @@ public class FragmentShop extends Fragment {
 //        RequestQueue requestQueue = Volley.newRequestQueue(view.getContext());
 //        requestQueue.add(stringRequest);
 
-        SuperGlobals.productList = Entities.productList;
+        productList = new ArrayList<>(Entities.productList);
         updateRecyclerView();
 
     }
@@ -170,7 +178,7 @@ public class FragmentShop extends Fragment {
 
     private void updateRecyclerView() {
 
-        productAdapter = new ProductAdapter(SuperGlobals.productList);
+        productAdapter = new ProductAdapter(productList);
         recyclerViewProducts.setAdapter(productAdapter);
 
     }

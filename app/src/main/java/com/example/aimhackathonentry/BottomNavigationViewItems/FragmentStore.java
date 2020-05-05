@@ -49,8 +49,8 @@ public class FragmentStore extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
 
         SuperGlobals.tab1 = new TabDashboard();
-        SuperGlobals.tab2 = new TabForSale();
-        SuperGlobals.tab3 = new TabAbout();
+        SuperGlobals.tab2 = new FragmentShop();
+        SuperGlobals.tab3 = new TabDashboard();
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(((FragmentActivity) view.getContext()).getSupportFragmentManager(), 0);
         viewPagerAdapter.addTab(SuperGlobals.tab1, "Dashboard");
@@ -60,6 +60,54 @@ public class FragmentStore extends Fragment {
         viewPager.setOffscreenPageLimit(viewPagerAdapter.getCount());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                switch (tab.getPosition()) {
+
+                    case 0:
+                    case 2:
+                        turnOffToolbarScrolling();
+                        break;
+
+                    default:
+                        turnOnToolbarScrolling();
+
+                }
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+    }
+
+
+    public void turnOffToolbarScrolling() {
+
+        //turn off scrolling
+        AppBarLayout.LayoutParams toolbarLayoutParams = (AppBarLayout.LayoutParams) tabLayout.getLayoutParams();
+        toolbarLayoutParams.setScrollFlags(0);
+        tabLayout.setLayoutParams(toolbarLayoutParams);
+
+    }
+
+
+    public void turnOnToolbarScrolling() {
+
+        //turn on scrolling
+        AppBarLayout.LayoutParams toolbarLayoutParams = (AppBarLayout.LayoutParams) tabLayout.getLayoutParams();
+        toolbarLayoutParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS);
+        tabLayout.setLayoutParams(toolbarLayoutParams);
 
     }
 

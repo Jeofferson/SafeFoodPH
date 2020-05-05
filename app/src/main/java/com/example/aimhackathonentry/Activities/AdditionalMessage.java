@@ -20,8 +20,10 @@ import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 
 public class AdditionalMessage extends AppCompatActivity {
 
@@ -47,7 +49,7 @@ public class AdditionalMessage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additional_message);
 
-        product = SuperGlobals.currentProduct;
+        product = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.currentProduct : SuperGlobalsInstanceForMyStoreShop.currentProduct;
 
         setUpToolbar("Additional Message");
 
@@ -138,7 +140,17 @@ public class AdditionalMessage extends AppCompatActivity {
 
     private void next() {
 
-        SuperGlobals.additionalMessage = txtAdditionalMessage.getText().toString().trim();
+        switch (SuperGlobals.currentTab) {
+
+            case Constants.SHOP:
+                SuperGlobals.additionalMessage = txtAdditionalMessage.getText().toString().trim();
+                break;
+
+            case Constants.STORE:
+                SuperGlobalsInstanceForMyStoreShop.additionalMessage = txtAdditionalMessage.getText().toString().trim();
+                break;
+
+        }
 
         NavigationManager.goToActivity(AdditionalMessage.this, PlaceOrder.class);
 

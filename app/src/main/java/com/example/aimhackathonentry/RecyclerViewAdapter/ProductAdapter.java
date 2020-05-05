@@ -18,6 +18,7 @@ import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Glide.with(context).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
         holder.lblProductName.setText(product.getProductName());
         holder.lblDescription.setText(product.getDescription());
-        holder.lblPrice.setText(String.format("₱ %,.2f / pcs", product.getPrice()));
+        holder.lblPrice.setText(String.format("₱%,.2f/pcs", product.getPrice()));
         String address = String.format("%s, %s", product.getCity(), product.getProvince());
         holder.lblSellerAddress.setText(address);
 
@@ -110,8 +111,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         private void goToFragmentProduct(View view) {
 
-            SuperGlobals.currentProduct = productList.get(getAdapterPosition());
-            NavigationManager.goToFragment(view, Constants.SHOP, new FragmentProduct());
+            switch (SuperGlobals.currentTab) {
+
+                case Constants.SHOP:
+                    SuperGlobals.currentProduct = productList.get(getAdapterPosition());
+                    NavigationManager.goToFragment(view, Constants.SHOP, new FragmentProduct());
+                    break;
+
+                case Constants.STORE:
+                    SuperGlobalsInstanceForMyStoreShop.currentProduct = productList.get(getAdapterPosition());
+                    NavigationManager.goToFragment(view, Constants.STORE, new FragmentProduct());
+                    break;
+
+            }
 
         }
 

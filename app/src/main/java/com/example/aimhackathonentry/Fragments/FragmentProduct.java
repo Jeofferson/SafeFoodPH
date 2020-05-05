@@ -18,20 +18,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Activities.OrderDetails;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 
 
 public class FragmentProduct extends Fragment {
 
 
-    Product product;
+    private Product product;
 
     private View view;
 
@@ -58,7 +61,7 @@ public class FragmentProduct extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_product, container, false);
 
-        product = SuperGlobals.currentProduct;
+        product = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.currentProduct : SuperGlobalsInstanceForMyStoreShop.currentProduct;
 
         updateViews();
         setUpToolbar("Product Details");
@@ -127,7 +130,7 @@ public class FragmentProduct extends Fragment {
 
         Glide.with(view.getContext()).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
-        lblPrice.setText(String.format("₱ %,.2f / pcs", product.getPrice()));
+        lblPrice.setText(String.format("₱%,.2f/pcs", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
         String fullName = String.format("%s %s", product.getFirstName(), product.getLastName());
@@ -135,28 +138,63 @@ public class FragmentProduct extends Fragment {
         String address = String.format("%s, %s", product.getCity(), product.getProvince());
         lblAddress.setText(address);
 
-        btnAddToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        switch (SuperGlobals.currentTab) {
 
-                addToCart();
+            case Constants.SHOP:
+                btnAddToCart.setText("Add to Cart");
+                btnBuyNow.setText("Buy Now");
 
-            }
-        });
+                btnAddToCart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-        btnBuyNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                        addToCart();
 
-                buyNow();
+                    }
+                });
 
-            }
-        });
+                btnBuyNow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        buyNow();
+
+                    }
+                });
+                break;
+
+            case Constants.STORE:
+                btnAddToCart.setBackground(getResources().getDrawable(R.drawable.my_button_red));
+                btnAddToCart.setText("Delete");
+                btnBuyNow.setText("View Orders");
+
+                btnAddToCart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        delete();
+
+                    }
+                });
+
+                btnBuyNow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        viewOrders();
+
+                    }
+                });
+                break;
+
+        }
 
     }
 
 
     private void addToCart() {
+
+        Toast.makeText(view.getContext(), "Add to Cart", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -164,6 +202,20 @@ public class FragmentProduct extends Fragment {
     private void buyNow() {
 
         NavigationManager.goToActivity(view.getContext(), OrderDetails.class);
+
+    }
+
+
+    private void delete() {
+
+        Toast.makeText(view.getContext(), "Delete", Toast.LENGTH_SHORT).show();
+
+    }
+
+
+    private void viewOrders() {
+
+        Toast.makeText(view.getContext(), "View Orders", Toast.LENGTH_SHORT).show();
 
     }
 

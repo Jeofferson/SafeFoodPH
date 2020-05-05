@@ -31,6 +31,7 @@ import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -46,6 +47,10 @@ public class PlaceOrder extends AppCompatActivity {
 
     private User user;
     private Product product;
+
+    private int orderQuantity;
+    private String paymentMethod;
+    private String additionalMessage;
 
     private Toolbar toolbar;
 
@@ -72,7 +77,11 @@ public class PlaceOrder extends AppCompatActivity {
         setContentView(R.layout.activity_place_order);
 
         user = SuperGlobals.currentUser;
-        product = SuperGlobals.currentProduct;
+        product = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.currentProduct : SuperGlobalsInstanceForMyStoreShop.currentProduct;
+
+        orderQuantity = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.orderQuantity : SuperGlobalsInstanceForMyStoreShop.orderQuantity;
+        paymentMethod = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.paymentMethod : SuperGlobalsInstanceForMyStoreShop.paymentMethod;
+        additionalMessage = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.additionalMessage : SuperGlobalsInstanceForMyStoreShop.additionalMessage;
 
         setUpToolbar("Review Order");
 
@@ -132,11 +141,11 @@ public class PlaceOrder extends AppCompatActivity {
         lblFullName.setText(fullName);
         Glide.with(PlaceOrder.this).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgProductDisplayPicture);
         lblProductName.setText(product.getProductName());
-        lblQuantity.setText(String.format("Quantity: x%d", SuperGlobals.orderQuantity));
-        lblPaymentMethod.setText("Payment Method: " + SuperGlobals.paymentMethod);
-        lblOrderPrice.setText(String.format("₱%,.2f", product.getPrice() * SuperGlobals.orderQuantity));
+        lblQuantity.setText(String.format("Quantity: x%d", orderQuantity));
+        lblPaymentMethod.setText("Payment Method: " + paymentMethod);
+        lblOrderPrice.setText(String.format("₱%,.2f", product.getPrice() * orderQuantity));
 
-        if (SuperGlobals.additionalMessage.isEmpty()) {
+        if (additionalMessage.isEmpty()) {
 
             viewHr.setVisibility(View.GONE);
             lblAdditionalMessageLabel.setVisibility(View.GONE);
@@ -144,7 +153,7 @@ public class PlaceOrder extends AppCompatActivity {
 
         } else {
 
-            lblAdditionalMessage.setText(SuperGlobals.additionalMessage);
+            lblAdditionalMessage.setText(additionalMessage);
 
             viewHr.setVisibility(View.VISIBLE);
             lblAdditionalMessageLabel.setVisibility(View.VISIBLE);
@@ -168,71 +177,71 @@ public class PlaceOrder extends AppCompatActivity {
 
         hideViewsAction();
 
-        StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
-                ConstantsVolley.URL_CREATE_ORDER,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try {
-
-                            JSONObject jsonObject = new JSONObject(response);
-
-                            String status = jsonObject.getString("status");
-
-                            if (status.equals("failed")) {
-
-                                showError(jsonObject.getString("errorMessage"));
-
-                            } else if (status.equals("success")) {
+//        StringRequest stringRequest = new StringRequest(
+//                Request.Method.POST,
+//                ConstantsVolley.URL_CREATE_ORDER,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        try {
+//
+//                            JSONObject jsonObject = new JSONObject(response);
+//
+//                            String status = jsonObject.getString("status");
+//
+//                            if (status.equals("failed")) {
+//
+//                                showError(jsonObject.getString("errorMessage"));
+//
+//                            } else if (status.equals("success")) {
 
                                 NavigationManager.goToActivity(PlaceOrder.this, OrderSent.class);
 
-                            } else {
-
-                                showError("Process failed.");
-
-                            }
-
-                        } catch (JSONException e) {
-
-                            showError("Process failed.");
-                            Log.e(Constants.TAG, e.getMessage());
-
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        showError("Process failed.");
-                        Log.e(Constants.TAG, error.getMessage());
-
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String, String> params = new HashMap<>();
-
-                params.put("productId", String.valueOf(product.getProductId()));
-                params.put("buyerId", String.valueOf(user.getUserId()));
-                params.put("sellerId", String.valueOf(product.getSellerId()));
-                params.put("quantity", String.valueOf(SuperGlobals.orderQuantity));
-                params.put("paymentMethod", SuperGlobals.paymentMethod);
-                params.put("additionalMessage", SuperGlobals.additionalMessage);
-
-                return params;
-            }
-
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(PlaceOrder.this);
-        requestQueue.add(stringRequest);
+//                            } else {
+//
+//                                showError("Process failed.");
+//
+//                            }
+//
+//                        } catch (JSONException e) {
+//
+//                            showError("Process failed.");
+//                            Log.e(Constants.TAG, e.getMessage());
+//
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                        showError("Process failed.");
+//                        Log.e(Constants.TAG, error.getMessage());
+//
+//                    }
+//                }) {
+//
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//
+//                Map<String, String> params = new HashMap<>();
+//
+//                params.put("productId", String.valueOf(product.getProductId()));
+//                params.put("buyerId", String.valueOf(user.getUserId()));
+//                params.put("sellerId", String.valueOf(product.getSellerId()));
+//                params.put("quantity", String.valueOf(SuperGlobals.orderQuantity));
+//                params.put("paymentMethod", SuperGlobals.paymentMethod);
+//                params.put("additionalMessage", SuperGlobals.additionalMessage);
+//
+//                return params;
+//            }
+//
+//        };
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(PlaceOrder.this);
+//        requestQueue.add(stringRequest);
 
     }
 

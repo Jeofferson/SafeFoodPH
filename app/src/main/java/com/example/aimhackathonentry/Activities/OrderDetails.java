@@ -16,11 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.Fragments.FragmentProduct;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 
 public class OrderDetails extends AppCompatActivity {
 
@@ -52,7 +55,7 @@ public class OrderDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
 
-        product = SuperGlobals.currentProduct;
+        product = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.currentProduct : SuperGlobalsInstanceForMyStoreShop.currentProduct;
 
         setUpToolbar("Order Details");
 
@@ -108,7 +111,7 @@ public class OrderDetails extends AppCompatActivity {
 
         Glide.with(OrderDetails.this).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
-        lblPrice.setText(String.format("₱ %,.2f / pcs", product.getPrice()));
+        lblPrice.setText(String.format("₱%,.2f/pcs", product.getPrice()));
         lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
 
@@ -166,9 +169,21 @@ public class OrderDetails extends AppCompatActivity {
 
     private void next() {
 
-        SuperGlobals.orderQuantity = Integer.parseInt(lblOrderQuantity.getText().toString().trim());
         String paymentMethod = String.valueOf(((RadioButton) findViewById(radioGroupPaymentMethod.getCheckedRadioButtonId())).getText());
-        SuperGlobals.paymentMethod = paymentMethod;
+
+        switch (SuperGlobals.currentTab) {
+
+            case Constants.SHOP:
+                SuperGlobals.orderQuantity = Integer.parseInt(lblOrderQuantity.getText().toString().trim());
+                SuperGlobals.paymentMethod = paymentMethod;
+                break;
+
+            case Constants.STORE:
+                SuperGlobalsInstanceForMyStoreShop.orderQuantity = Integer.parseInt(lblOrderQuantity.getText().toString().trim());
+                SuperGlobalsInstanceForMyStoreShop.paymentMethod = paymentMethod;
+                break;
+
+        }
 
         switch (paymentMethod) {
 

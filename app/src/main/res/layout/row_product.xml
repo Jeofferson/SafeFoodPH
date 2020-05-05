@@ -48,7 +48,6 @@
             android:id="@+id/lblProductName"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="2"
@@ -58,6 +57,7 @@
             android:text="Product Name"/>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/lblDescription"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -74,7 +74,7 @@
             android:layout_marginEnd="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/theme4"
             android:text="Price: 1,200.00"/>
