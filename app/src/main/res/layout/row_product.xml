@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="40dp"
-    android:layout_marginEnd="40dp"
-    android:layout_marginBottom="20dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="15dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -31,7 +30,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="Seller Full Name"/>
 
@@ -41,9 +39,10 @@
             android:id="@+id/imgProductDisplayPicture"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"/>
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_background"/>
 
         <TextView
             android:id="@+id/lblProductName"
@@ -54,7 +53,6 @@
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:ellipsize="end"
-            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/theme4"
             android:text="Product Name"/>
@@ -88,7 +86,6 @@
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
             android:textStyle="bold"
             android:text="Dagupan City, Pangasinan"/>
 

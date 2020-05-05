@@ -9,6 +9,7 @@ public class Constants {
     public static final String STORE = "Store";
     public static final String PROFILE = "Profile";
 
+    public static final int SPLASH_SCREEN_DURATION = 2000;
     public static final int ANIMATION_DURATION = 2000;
 
 

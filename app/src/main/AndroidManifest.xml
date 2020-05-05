@@ -13,7 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.OrderSent"></activity>
+        <activity android:name=".SplashScreen.SplashScreen">
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+        </activity>
+        <activity android:name=".Activities.OrderSent" />
         <activity android:name=".Activities.PlaceOrder" />
         <activity android:name=".Activities.ItemsToTrade" />
         <activity android:name=".Activities.AdditionalMessage" />
@@ -21,11 +30,13 @@
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.Register" />
         <activity android:name=".Activities.LogIn">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

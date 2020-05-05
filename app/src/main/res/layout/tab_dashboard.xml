@@ -117,7 +117,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="24"
+                            android:text="27"
                             android:textColor="@color/theme5"
                             android:textSize="24sp"
                             android:textStyle="bold" />
