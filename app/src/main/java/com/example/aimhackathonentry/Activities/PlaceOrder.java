@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,7 +61,9 @@ public class PlaceOrder extends AppCompatActivity {
     private TextView lblProductName;
     private TextView lblQuantity;
     private TextView lblPaymentMethod;
+    private TextView lblOrderPriceLabel;
     private TextView lblOrderPrice;
+    private Button btnViewOffer;
 
     private View viewHr;
     private TextView lblAdditionalMessageLabel;
@@ -126,7 +129,9 @@ public class PlaceOrder extends AppCompatActivity {
         lblProductName = findViewById(R.id.lblProductName);
         lblQuantity = findViewById(R.id.lblQuantity);
         lblPaymentMethod = findViewById(R.id.lblPaymentMethod);
+        lblOrderPriceLabel = findViewById(R.id.lblOrderPriceLabel);
         lblOrderPrice = findViewById(R.id.lblOrderPrice);
+        btnViewOffer = findViewById(R.id.btnViewOffer);
 
         viewHr = findViewById(R.id.viewHr);
         lblAdditionalMessageLabel = findViewById(R.id.lblAdditionalMessageLabel);
@@ -144,6 +149,31 @@ public class PlaceOrder extends AppCompatActivity {
         lblQuantity.setText(String.format("Quantity: x%d", orderQuantity));
         lblPaymentMethod.setText("Payment Method: " + paymentMethod);
         lblOrderPrice.setText(String.format("₱%,.2f", product.getPrice() * orderQuantity));
+
+        switch (SuperGlobals.paymentMethod) {
+
+            case "Cash":
+                btnViewOffer.setVisibility(View.GONE);
+                lblOrderPriceLabel.setVisibility(View.VISIBLE);
+                lblOrderPrice.setVisibility(View.VISIBLE);
+                break;
+
+            case "Trade":
+                lblOrderPriceLabel.setVisibility(View.GONE);
+                lblOrderPrice.setVisibility(View.GONE);
+                btnViewOffer.setVisibility(View.VISIBLE);
+                break;
+
+        }
+
+        btnViewOffer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                viewOffer();
+
+            }
+        });
 
         if (additionalMessage.isEmpty()) {
 
@@ -169,6 +199,13 @@ public class PlaceOrder extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    private void viewOffer() {
+
+        NavigationManager.goToActivity(PlaceOrder.this, ViewOffer.class);
 
     }
 
