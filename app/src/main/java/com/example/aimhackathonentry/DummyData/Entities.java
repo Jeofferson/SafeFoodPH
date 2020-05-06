@@ -269,7 +269,7 @@ public class Entities {
 
 
 
-    public static List<TradeItem> tradeItemList = new ArrayList<>();
+    public static List<TradeItem> tradeItemList;
 
 
 

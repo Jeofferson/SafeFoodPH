@@ -92,7 +92,6 @@ public class TradeGoods extends AppCompatActivity {
 
         SuperGlobals.tradeItemList.clear();
 
-        SuperGlobals.tradeItemList = new ArrayList<>(Entities.tradeItemList);
         updateRecyclerView();
 
     }
@@ -100,7 +99,7 @@ public class TradeGoods extends AppCompatActivity {
 
     private void updateRecyclerView() {
 
-        tradeItemAdapter = new TradeItemAdapter(SuperGlobals.tradeItemList);
+        tradeItemAdapter = new TradeItemAdapter(SuperGlobals.tradeItemList, true);
         recyclerViewTradeGoods.setAdapter(tradeItemAdapter);
 
     }
@@ -158,6 +157,7 @@ public class TradeGoods extends AppCompatActivity {
 
     private void next() {
 
+        Entities.tradeItemList = new ArrayList<>(SuperGlobals.tradeItemList);
         NavigationManager.goToActivity(TradeGoods.this, AdditionalMessage.class);
 
     }
