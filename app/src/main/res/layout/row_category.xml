@@ -12,7 +12,7 @@
         <ImageView
             android:id="@+id/imgImage"
             android:layout_margin="20dp"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"/>
@@ -25,7 +25,7 @@
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:text="Beverage, Confectionary and Dairy Foods"/>
 

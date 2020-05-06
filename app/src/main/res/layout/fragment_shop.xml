@@ -39,6 +39,7 @@
             app:iconifiedByDefault="false"/>
 
         <ImageButton
+            android:id="@+id/btnCustomSearch"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
@@ -51,6 +52,7 @@
             android:src="@drawable/settings"/>
 
         <ImageButton
+            android:id="@+id/btnCart"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"

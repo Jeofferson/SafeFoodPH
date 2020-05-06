@@ -73,11 +73,10 @@ public class FragmentProduct extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        
-        setUpToolbar("Product Details");
 
+//        setUpToolbar("Product Details");
         inflater.inflate(R.menu.menu_cart_overflow_menu, menu);
+
         super.onCreateOptionsMenu(menu, inflater);
 
     }
@@ -92,6 +91,10 @@ public class FragmentProduct extends Fragment {
                 ((Activity) view.getContext()).onBackPressed();
                 return true;
 
+            case R.id.cart:
+                Toast.makeText(view.getContext(), "cart", Toast.LENGTH_SHORT).show();
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -102,13 +105,12 @@ public class FragmentProduct extends Fragment {
     private void setUpToolbar(String title) {
 
         toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)view.getContext()).setSupportActionBar(toolbar);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
+        ((AppCompatActivity)view.getContext()).getSupportActionBar().setTitle(title);
+        setHasOptionsMenu(true);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        setHasOptionsMenu(true);
 
     }
 

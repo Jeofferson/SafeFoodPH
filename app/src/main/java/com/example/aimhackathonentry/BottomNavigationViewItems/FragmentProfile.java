@@ -71,11 +71,11 @@ public class FragmentProfile extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
 
         setUpToolbar("Profile");
 
         inflater.inflate(R.menu.menu_profile_overflow_menu, menu);
+
         super.onCreateOptionsMenu(menu, inflater);
 
     }

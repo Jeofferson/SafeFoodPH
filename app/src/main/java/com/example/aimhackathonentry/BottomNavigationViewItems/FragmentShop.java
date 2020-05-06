@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,6 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aimhackathonentry.DummyData.Entities;
+import com.example.aimhackathonentry.Fragments.FragmentCategories;
+import com.example.aimhackathonentry.Fragments.FragmentProduct;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.RecyclerViewAdapter.ProductAdapter;
@@ -50,8 +54,10 @@ public class FragmentShop extends Fragment {
 
     private View view;
 
-    private SearchView searchView;
     private RecyclerView recyclerViewProducts;
+    private SearchView searchView;
+    private ImageView btnCustomSearch;
+    private ImageView btnCart;
 
 
     public FragmentShop() {}
@@ -65,6 +71,8 @@ public class FragmentShop extends Fragment {
 
         prepareSearchView();
         prepareRecyclerView();
+
+        updateViews();
 
         return view;
 
@@ -180,6 +188,32 @@ public class FragmentShop extends Fragment {
 
         productAdapter = new ProductAdapter(productList);
         recyclerViewProducts.setAdapter(productAdapter);
+
+    }
+
+
+    private void updateViews() {
+
+        btnCustomSearch = view.findViewById(R.id.btnCustomSearch);
+        btnCart = view.findViewById(R.id.btnCart);
+
+        btnCustomSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                NavigationManager.goToFragment(view, SuperGlobals.currentTab, new FragmentCategories());
+
+            }
+        });
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(view.getContext(), "cart", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

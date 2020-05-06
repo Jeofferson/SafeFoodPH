@@ -1,13 +1,17 @@
 package com.example.aimhackathonentry.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -37,9 +41,39 @@ public class FragmentCategories extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_categories, container, false);
 
+        setUpToolbar("Categories");
+
         prepareRecyclerView();
 
         return view;
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                ((Activity) view.getContext()).onBackPressed();
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
+    private void setUpToolbar(String title) {
+
+        toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 
