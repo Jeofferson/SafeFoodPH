@@ -192,6 +192,7 @@ public class OrderDetails extends AppCompatActivity {
                 break;
 
             case "Trade":
+                NavigationManager.goToActivity(OrderDetails.this, TradeGoods.class);
                 break;
 
         }

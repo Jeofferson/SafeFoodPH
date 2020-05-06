@@ -3,6 +3,7 @@ package com.example.aimhackathonentry.DummyData;
 import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.ObjectModels.Feedback;
 import com.example.aimhackathonentry.ObjectModels.Product;
+import com.example.aimhackathonentry.ObjectModels.TradeItem;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
@@ -13,6 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Entities {
+
+
 
 
     public static int[][][] sales = {
@@ -33,6 +36,8 @@ public class Entities {
     };
 
 
+
+
     // User
     public static List<User> userList = new ArrayList<>(Arrays.asList(
             new User(
@@ -46,6 +51,8 @@ public class Entities {
                     "Pangasinan"
             )
     ));
+
+
 
 
     // Category
@@ -91,6 +98,8 @@ public class Entities {
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_fats_oils.jpg?alt=media&token=81214a15-0045-408f-af74-fb3662d5ef22"
             )
     ));
+
+
 
 
     // Product
@@ -258,6 +267,13 @@ public class Entities {
     ));
 
 
+
+
+    public static List<TradeItem> tradeItemList = new ArrayList<>();
+
+
+
+
     public static List<Feedback> feedbackList = new ArrayList<>(Arrays.asList(
             new Feedback(
                     0,
@@ -285,6 +301,8 @@ public class Entities {
                     "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
             )
     ));
+
+
 
 
 }

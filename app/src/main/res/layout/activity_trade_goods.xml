@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.TradeGoods">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTradeGoods"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/layoutEnterGoodsToTrade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray1"
+        tools:listitem="@layout/row_trade_item"/>
+
+    <View
+        android:background="@drawable/drop_shadow_above"
+        android:layout_above="@id/layoutEnterGoodsToTrade"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layoutEnterGoodsToTrade"
+        android:layout_above="@id/layoutNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtTradeItemProductName"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Add goods to trade..."/>
+
+            <Button
+                android:id="@+id/btnAddTradeItem"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/my_button_thin"
+                android:textColor="@color/white"
+                android:text="Add"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layoutNext"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/my_button_thin"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:text="Next"
+            android:enabled="false"/>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
