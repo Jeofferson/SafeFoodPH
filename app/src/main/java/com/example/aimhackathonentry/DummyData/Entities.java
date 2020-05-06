@@ -2,6 +2,7 @@ package com.example.aimhackathonentry.DummyData;
 
 import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.ObjectModels.Feedback;
+import com.example.aimhackathonentry.ObjectModels.Order;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.TradeItem;
 import com.example.aimhackathonentry.ObjectModels.User;
@@ -270,6 +271,82 @@ public class Entities {
 
 
     public static List<TradeItem> tradeItemList;
+
+
+
+
+    public static List<Order> orderList = new ArrayList<>(Arrays.asList(
+            new Order(
+                    0,
+                    userList.get(0).getUserId(),
+                    userList.get(0).getDisplayPicture(),
+                    userList.get(0).getFirstName(),
+                    userList.get(0).getLastName(),
+                    productList.get(8).getProductId(),
+                    productList.get(8).getProductDisplayPicture(),
+                    productList.get(8).getProductName(),
+                    productList.get(8).getPrice(),
+                    4,
+                    "Trade",
+                    "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
+            ),
+            new Order(
+                    0,
+                    userList.get(0).getUserId(),
+                    userList.get(0).getDisplayPicture(),
+                    userList.get(0).getFirstName(),
+                    userList.get(0).getLastName(),
+                    productList.get(5).getProductId(),
+                    productList.get(5).getProductDisplayPicture(),
+                    productList.get(5).getProductName(),
+                    productList.get(5).getPrice(),
+                    4,
+                    "Trade",
+                    "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
+            ),
+            new Order(
+                    0,
+                    userList.get(0).getUserId(),
+                    userList.get(0).getDisplayPicture(),
+                    userList.get(0).getFirstName(),
+                    userList.get(0).getLastName(),
+                    productList.get(7).getProductId(),
+                    productList.get(7).getProductDisplayPicture(),
+                    productList.get(7).getProductName(),
+                    productList.get(7).getPrice(),
+                    4,
+                    "Trade",
+                    "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
+            ),
+            new Order(
+                    0,
+                    userList.get(0).getUserId(),
+                    userList.get(0).getDisplayPicture(),
+                    userList.get(0).getFirstName(),
+                    userList.get(0).getLastName(),
+                    productList.get(4).getProductId(),
+                    productList.get(4).getProductDisplayPicture(),
+                    productList.get(4).getProductName(),
+                    productList.get(4).getPrice(),
+                    4,
+                    "Trade",
+                    "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
+            ),
+            new Order(
+                    0,
+                    userList.get(0).getUserId(),
+                    userList.get(0).getDisplayPicture(),
+                    userList.get(0).getFirstName(),
+                    userList.get(0).getLastName(),
+                    productList.get(1).getProductId(),
+                    productList.get(1).getProductDisplayPicture(),
+                    productList.get(1).getProductName(),
+                    productList.get(1).getPrice(),
+                    4,
+                    "Trade",
+                    "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
+            )
+    ));
 
 
 

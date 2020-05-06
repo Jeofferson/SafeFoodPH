@@ -61,15 +61,15 @@ public class LogIn extends AppCompatActivity {
 //        editor.clear();
 //        editor.commit();
 
-        checkedIfLoggedIn();
+//        checkedIfLoggedIn();
 
         updateViews();
 
     }
 
 
-    private void checkedIfLoggedIn() {
-
+//    private void checkedIfLoggedIn() {
+//
         // Dummy data
 //        if (sharedPreferences.getString(ConstantsSharedPreferences.ONLINE_STATUS, "").equals("Online")) {
 //
@@ -83,14 +83,14 @@ public class LogIn extends AppCompatActivity {
 //            finish();
 //
 //        }
-
-        SuperGlobals.currentUser = Entities.userList.get(0);
-
-        SuperGlobals.shouldCheckForUpdatesInUser = false;
-        NavigationManager.goToActivity(LogIn.this, MainActivity.class);
-        finish();
-
-    }
+//
+//        SuperGlobals.currentUser = Entities.userList.get(0);
+//
+//        SuperGlobals.shouldCheckForUpdatesInUser = false;
+//        NavigationManager.goToActivity(LogIn.this, MainActivity.class);
+//        finish();
+//
+//    }
 
 
     private void updateViews() {
@@ -125,109 +125,112 @@ public class LogIn extends AppCompatActivity {
 
     private void logIn() {
 
-        hideViewsAction();
+        NavigationManager.goToActivity(LogIn.this, MainActivity.class);
+        finish();
 
-        final String username = txtUsername.getText().toString().trim();
-        final String password = txtPassword.getText().toString().trim();
-
-        if (username.isEmpty() || password.isEmpty()) {
-
-            showError("Please fill out all the fields.");
-            return;
-
-        }
-
-        StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
-                ConstantsVolley.URL_LOGIN,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try {
-
-                            JSONObject jsonObject = new JSONObject(response);
-
-                            String status = jsonObject.getString("status");
-
-                            if (status.equals("failed")) {
-
-                                showError(jsonObject.getString("errorMessage"));
-
-                            } else if (status.equals("success")) {
-
-                                int userId = jsonObject.getInt("userId");
-                                String username = jsonObject.getString("username");
-                                String password = jsonObject.getString("password");
-                                String firstName = jsonObject.getString("firstName");
-                                String lastName = jsonObject.getString("lastName");
-                                String displayPicture = jsonObject.getString("displayPicture");
-                                String city = jsonObject.getString("city");
-                                String province = jsonObject.getString("province");
-
-                                User user = new User(
-                                        userId,
-                                        username,
-                                        password,
-                                        firstName,
-                                        lastName,
-                                        displayPicture,
-                                        city,
-                                        province
-                                );
-
-                                SuperGlobals.currentUser = user;
-
-                                Gson gson = new Gson();
-                                String json = gson.toJson(user);
-                                editor.putString(ConstantsSharedPreferences.CURRENT_USER, json);
-                                editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
-                                editor.commit();
-
-                                SuperGlobals.shouldCheckForUpdatesInUser = false;
-                                NavigationManager.goToActivity(LogIn.this, MainActivity.class);
-                                finish();
-
-                            } else {
-
-                                showError("Login failed.");
-
-                            }
-
-                        } catch (JSONException e) {
-
-                            showError("Login failed.");
-                            Log.e(Constants.TAG, e.getMessage());
-
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        showError("Login failed.");
-                        Log.e(Constants.TAG, error.toString());
-
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String, String> params = new HashMap<>();
-
-                params.put("username", username);
-                params.put("password", password);
-
-                return params;
-            }
-
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(LogIn.this);
-        requestQueue.add(stringRequest);
+//        hideViewsAction();
+//
+//        final String username = txtUsername.getText().toString().trim();
+//        final String password = txtPassword.getText().toString().trim();
+//
+//        if (username.isEmpty() || password.isEmpty()) {
+//
+//            showError("Please fill out all the fields.");
+//            return;
+//
+//        }
+//
+//        StringRequest stringRequest = new StringRequest(
+//                Request.Method.POST,
+//                ConstantsVolley.URL_LOGIN,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        try {
+//
+//                            JSONObject jsonObject = new JSONObject(response);
+//
+//                            String status = jsonObject.getString("status");
+//
+//                            if (status.equals("failed")) {
+//
+//                                showError(jsonObject.getString("errorMessage"));
+//
+//                            } else if (status.equals("success")) {
+//
+//                                int userId = jsonObject.getInt("userId");
+//                                String username = jsonObject.getString("username");
+//                                String password = jsonObject.getString("password");
+//                                String firstName = jsonObject.getString("firstName");
+//                                String lastName = jsonObject.getString("lastName");
+//                                String displayPicture = jsonObject.getString("displayPicture");
+//                                String city = jsonObject.getString("city");
+//                                String province = jsonObject.getString("province");
+//
+//                                User user = new User(
+//                                        userId,
+//                                        username,
+//                                        password,
+//                                        firstName,
+//                                        lastName,
+//                                        displayPicture,
+//                                        city,
+//                                        province
+//                                );
+//
+//                                SuperGlobals.currentUser = user;
+//
+//                                Gson gson = new Gson();
+//                                String json = gson.toJson(user);
+//                                editor.putString(ConstantsSharedPreferences.CURRENT_USER, json);
+//                                editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
+//                                editor.commit();
+//
+//                                SuperGlobals.shouldCheckForUpdatesInUser = false;
+//                                NavigationManager.goToActivity(LogIn.this, MainActivity.class);
+//                                finish();
+//
+//                            } else {
+//
+//                                showError("Login failed.");
+//
+//                            }
+//
+//                        } catch (JSONException e) {
+//
+//                            showError("Login failed.");
+//                            Log.e(Constants.TAG, e.getMessage());
+//
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                        showError("Login failed.");
+//                        Log.e(Constants.TAG, error.toString());
+//
+//                    }
+//                }) {
+//
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//
+//                Map<String, String> params = new HashMap<>();
+//
+//                params.put("username", username);
+//                params.put("password", password);
+//
+//                return params;
+//            }
+//
+//        };
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(LogIn.this);
+//        requestQueue.add(stringRequest);
 
     }
 

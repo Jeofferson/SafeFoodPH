@@ -9,12 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.aimhackathonentry.DummyData.Entities;
+import com.example.aimhackathonentry.Fragments.FragmentOrders;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Feedback;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.RecyclerViewAdapter.FeedbackAdapter;
 import com.example.aimhackathonentry.RecyclerViewAdapter.ProductAdapter;
+import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
@@ -36,8 +40,8 @@ public class TabDashboard extends Fragment {
 
     private View view;
 
+    private Button btnViewOrders;
     private LineChart lineChartTransactions;
-
     private RecyclerView recyclerViewFeedbacks;
 
 
@@ -51,6 +55,8 @@ public class TabDashboard extends Fragment {
         prepareLineChartView();
 
         prepareRecyclerView();
+
+        updateViews();
 
         return view;
 
@@ -184,6 +190,29 @@ public class TabDashboard extends Fragment {
 
         feedbackAdapter = new FeedbackAdapter(SuperGlobals.feedbackList);
         recyclerViewFeedbacks.setAdapter(feedbackAdapter);
+
+    }
+
+
+    private void updateViews() {
+
+        btnViewOrders = view.findViewById(R.id.btnViewOrders);
+
+        btnViewOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                viewOrders();
+
+            }
+        });
+
+    }
+
+
+    private void viewOrders() {
+
+        NavigationManager.goToFragment(view, Constants.STORE, new FragmentOrders());
 
     }
 

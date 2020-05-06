@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.ObjectModels.Feedback;
+import com.example.aimhackathonentry.ObjectModels.Order;
 import com.example.aimhackathonentry.ObjectModels.Product;
 import com.example.aimhackathonentry.ObjectModels.TradeItem;
 import com.example.aimhackathonentry.ObjectModels.User;
@@ -34,10 +35,11 @@ public class SuperGlobals {
 
     public static LinkedHashMap<String, ArrayList<Fragment>> tabLinkedHashMap = new LinkedHashMap<>();
 
-    public static List<Product> productList = new ArrayList<>();
-    public static List<Feedback> feedbackList = new ArrayList<>();
     public static List<Category> categoryList = new ArrayList<>();
+    public static List<Product> productList = new ArrayList<>();
     public static List<TradeItem> tradeItemList = new ArrayList<>();
+    public static List<Order> orderList = new ArrayList<>();
+    public static List<Feedback> feedbackList = new ArrayList<>();
 
 
 }

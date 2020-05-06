@@ -30,14 +30,24 @@
         <activity android:name=".Activities.ItemsToTrade" />
         <activity android:name=".Activities.AdditionalMessage" />
         <activity android:name=".Activities.OrderDetails" />
-        <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.Register" />
-        <activity android:name=".Activities.LogIn">
+        <activity android:name=".Activities.MainActivity" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".Activities.Register" />
+        <activity android:name=".Activities.LogIn">
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
         </activity>
     </application>
 

@@ -197,14 +197,15 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnViewOrders"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="40dp"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
                 android:background="@drawable/my_button_dark"
+                android:text="View Orders"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:text="View Orders"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

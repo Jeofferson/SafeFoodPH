@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.example.aimhackathonentry.Activities.LogIn;
+import com.example.aimhackathonentry.Activities.MainActivity;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
@@ -24,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                NavigationManager.goToActivity(SplashScreen.this, LogIn.class);
+                NavigationManager.goToActivity(SplashScreen.this, MainActivity.class);
                 finish();
 
             }

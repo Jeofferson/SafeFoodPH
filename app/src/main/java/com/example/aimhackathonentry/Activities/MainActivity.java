@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentStore;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentShop;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentProfile;
+import com.example.aimhackathonentry.DummyData.Entities;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.R;
 import com.example.aimhackathonentry.SessionVariables.Constants;
@@ -57,20 +58,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferences = getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+//        sharedPreferences = getSharedPreferences(ConstantsSharedPreferences.SHARED_PREFERENCES_NAME, Activity.MODE_PRIVATE);
+//        editor = sharedPreferences.edit();
 
+        SuperGlobals.currentUser = Entities.userList.get(0);
         user = SuperGlobals.currentUser;
 
-        if (SuperGlobals.shouldCheckForUpdatesInUser) {
+        prepareBottomNavigationView();
 
-            checkForUpdatesInUser();
-
-        } else {
-
-            prepareBottomNavigationView();
-
-        }
+//        if (SuperGlobals.shouldCheckForUpdatesInUser) {
+//
+//            checkForUpdatesInUser();
+//
+//        } else {
+//
+//            prepareBottomNavigationView();
+//
+//        }
 
     }
 
@@ -99,98 +103,98 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void checkForUpdatesInUser() {
-
-        StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
-                ConstantsVolley.URL_CHECK_FOR_UPDATES_IN_USER,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try {
-
-                            JSONObject jsonObject = new JSONObject(response);
-
-                            String status = jsonObject.getString("status");
-
-                            if (status.equals("failed")) {
-
-                                Toast.makeText(MainActivity.this, jsonObject.getString("errorMessage"), Toast.LENGTH_SHORT).show();
-
-                            } else if (status.equals("success")) {
-
-                                int userId = jsonObject.getInt("userId");
-                                String username = jsonObject.getString("username");
-                                String password = jsonObject.getString("password");
-                                String firstName = jsonObject.getString("firstName");
-                                String lastName = jsonObject.getString("lastName");
-                                String displayPicture = jsonObject.getString("displayPicture");
-                                String city = jsonObject.getString("city");
-                                String province = jsonObject.getString("province");
-
-                                User user = new User(
-                                        userId,
-                                        username,
-                                        password,
-                                        firstName,
-                                        lastName,
-                                        displayPicture,
-                                        city,
-                                        province
-                                );
-
-                                SuperGlobals.currentUser = user;
-
-                                Gson gson = new Gson();
-                                String json = gson.toJson(user);
-                                editor.putString(ConstantsSharedPreferences.CURRENT_USER, json);
-                                editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
-                                editor.commit();
-
-                                prepareBottomNavigationView();
-
-                            } else {
-
-                                Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
-
-                            }
-
-                        } catch (JSONException e) {
-
-                            Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
-                            Log.e(Constants.TAG, e.getMessage());
-
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
-                        Log.e(Constants.TAG, error.toString());
-
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String, String> params = new HashMap<>();
-
-                params.put("userId", String.valueOf(user.getUserId()));
-
-                return params;
-            }
-
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        requestQueue.add(stringRequest);
-
-    }
+//    private void checkForUpdatesInUser() {
+//
+//        StringRequest stringRequest = new StringRequest(
+//                Request.Method.POST,
+//                ConstantsVolley.URL_CHECK_FOR_UPDATES_IN_USER,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        try {
+//
+//                            JSONObject jsonObject = new JSONObject(response);
+//
+//                            String status = jsonObject.getString("status");
+//
+//                            if (status.equals("failed")) {
+//
+//                                Toast.makeText(MainActivity.this, jsonObject.getString("errorMessage"), Toast.LENGTH_SHORT).show();
+//
+//                            } else if (status.equals("success")) {
+//
+//                                int userId = jsonObject.getInt("userId");
+//                                String username = jsonObject.getString("username");
+//                                String password = jsonObject.getString("password");
+//                                String firstName = jsonObject.getString("firstName");
+//                                String lastName = jsonObject.getString("lastName");
+//                                String displayPicture = jsonObject.getString("displayPicture");
+//                                String city = jsonObject.getString("city");
+//                                String province = jsonObject.getString("province");
+//
+//                                User user = new User(
+//                                        userId,
+//                                        username,
+//                                        password,
+//                                        firstName,
+//                                        lastName,
+//                                        displayPicture,
+//                                        city,
+//                                        province
+//                                );
+//
+//                                SuperGlobals.currentUser = user;
+//
+//                                Gson gson = new Gson();
+//                                String json = gson.toJson(user);
+//                                editor.putString(ConstantsSharedPreferences.CURRENT_USER, json);
+//                                editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "Online");
+//                                editor.commit();
+//
+//                                prepareBottomNavigationView();
+//
+//                            } else {
+//
+//                                Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
+//
+//                            }
+//
+//                        } catch (JSONException e) {
+//
+//                            Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
+//                            Log.e(Constants.TAG, e.getMessage());
+//
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                        Toast.makeText(MainActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
+//                        Log.e(Constants.TAG, error.toString());
+//
+//                    }
+//                }) {
+//
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//
+//                Map<String, String> params = new HashMap<>();
+//
+//                params.put("userId", String.valueOf(user.getUserId()));
+//
+//                return params;
+//            }
+//
+//        };
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+//        requestQueue.add(stringRequest);
+//
+//    }
 
 
     private void prepareBottomNavigationView() {

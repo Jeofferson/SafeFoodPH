@@ -122,12 +122,12 @@ public class FragmentProfile extends Fragment {
 
     private void logOut() {
 
+        NavigationManager.goToActivity(getContext(), LogIn.class);
+        getActivity().finish();
+
 //        editor.putString(ConstantsSharedPreferences.CURRENT_USER, "");
 //        editor.putString(ConstantsSharedPreferences.ONLINE_STATUS, "");
 //        editor.commit();
-
-        NavigationManager.goToActivity(getContext(), LogIn.class);
-        getActivity().finish();
 
     }
 
