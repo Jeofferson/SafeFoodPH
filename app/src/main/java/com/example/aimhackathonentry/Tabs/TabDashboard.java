@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.aimhackathonentry.Activities.AddProduct;
+import com.example.aimhackathonentry.Activities.MainActivity;
 import com.example.aimhackathonentry.DummyData.Entities;
 import com.example.aimhackathonentry.Fragments.FragmentOrders;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
@@ -40,6 +42,7 @@ public class TabDashboard extends Fragment {
 
     private View view;
 
+    private Button btnAddProduct;
     private Button btnViewOrders;
     private LineChart lineChartTransactions;
     private RecyclerView recyclerViewFeedbacks;
@@ -196,7 +199,17 @@ public class TabDashboard extends Fragment {
 
     private void updateViews() {
 
+        btnAddProduct = view.findViewById(R.id.btnAddProduct);
         btnViewOrders = view.findViewById(R.id.btnViewOrders);
+
+        btnAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                addProduct();
+
+            }
+        });
 
         btnViewOrders.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,6 +219,13 @@ public class TabDashboard extends Fragment {
 
             }
         });
+
+    }
+
+
+    private void addProduct() {
+
+        NavigationManager.goToActivity(view.getContext(), AddProduct.class);
 
     }
 
