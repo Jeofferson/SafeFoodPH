@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -54,7 +56,11 @@ public class FragmentShop extends Fragment {
 
     private View view;
 
+    private CardView layoutRecommendedItems;
+    private RecyclerView recyclerViewRecommendedItems;
+
     private RecyclerView recyclerViewProducts;
+
     private SearchView searchView;
     private ImageView btnCustomSearch;
     private ImageView btnCart;
@@ -92,8 +98,20 @@ public class FragmentShop extends Fragment {
 
     private void prepareRecyclerView() {
 
+        if (SuperGlobals.currentTab.equals(Constants.SHOP)) {
+
+            layoutRecommendedItems = view.findViewById(R.id.layoutRecommendedItems);
+            layoutRecommendedItems.setVisibility(View.VISIBLE);
+
+            recyclerViewRecommendedItems = view.findViewById(R.id.recyclerViewRecommendedItems);
+            recyclerViewRecommendedItems.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+            recyclerViewRecommendedItems.setNestedScrollingEnabled(false);
+
+        }
+
         recyclerViewProducts = view.findViewById(R.id.recyclerViewProducts);
         recyclerViewProducts.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recyclerViewProducts.setNestedScrollingEnabled(false);
 
         queryProducts();
 
@@ -104,6 +122,11 @@ public class FragmentShop extends Fragment {
 
         productList.clear();
 
+        productList = new ArrayList<>(Entities.productList);
+        updateRecyclerView();
+
+//        productList.clear();
+//
 //        StringRequest stringRequest = new StringRequest(
 //                Request.Method.POST,
 //                ConstantsVolley.URL_RETRIEVE_PRODUCTS,
@@ -178,15 +201,19 @@ public class FragmentShop extends Fragment {
 //        RequestQueue requestQueue = Volley.newRequestQueue(view.getContext());
 //        requestQueue.add(stringRequest);
 
-        productList = new ArrayList<>(Entities.productList);
-        updateRecyclerView();
-
     }
 
 
     private void updateRecyclerView() {
 
-        productAdapter = new ProductAdapter(productList);
+        if (SuperGlobals.currentTab.equals(Constants.SHOP)) {
+
+            productAdapter = new ProductAdapter(productList, true);
+            recyclerViewRecommendedItems.setAdapter(productAdapter);
+
+        }
+
+        productAdapter = new ProductAdapter(productList, false);
         recyclerViewProducts.setAdapter(productAdapter);
 
     }

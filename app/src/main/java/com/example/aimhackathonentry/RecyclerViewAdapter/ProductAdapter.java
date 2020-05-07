@@ -27,12 +27,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
 
+    boolean isHorizontalScrolling;
+
     private List<Product> productList;
 
     private Context context;
 
 
-    public ProductAdapter(List<Product> productList) {
+    public ProductAdapter(List<Product> productList, boolean isHorizontalSrolling) {
+        this.isHorizontalScrolling = isHorizontalSrolling;
         this.productList = productList;
     }
 
@@ -42,8 +45,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         context = parent.getContext();
+        View view;
 
-        View view = LayoutInflater.from(context).inflate(R.layout.row_product, parent, false);
+        if (isHorizontalScrolling) {
+
+            view = LayoutInflater.from(context).inflate(R.layout.row_product_horizontal, parent, false);
+
+        } else {
+
+            view = LayoutInflater.from(context).inflate(R.layout.row_product, parent, false);
+
+        }
 
         return new ProductViewHolder(view);
 
