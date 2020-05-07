@@ -11,9 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentShop;
+import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.Category;
 import com.example.aimhackathonentry.R;
+import com.example.aimhackathonentry.SessionVariables.Constants;
 import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
+import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 
 import java.util.List;
 
@@ -71,6 +75,22 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
             imgImage = itemView.findViewById(R.id.imgImage);
             lblName = itemView.findViewById(R.id.lblName);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    categoryItemClicked(v);
+
+                }
+            });
+
+        }
+
+        private void categoryItemClicked(View view) {
+
+            SuperGlobals.currentCategory = categoryList.get(getAdapterPosition()).getName();
+            NavigationManager.goToFragment(view, Constants.SHOP, new FragmentShop());
 
         }
 

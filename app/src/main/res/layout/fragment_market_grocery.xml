@@ -22,7 +22,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/theme4"
-            android:text="What do you prefer?"/>
+            android:text="Choose One"/>
         
         <LinearLayout
             android:layout_gravity="center_horizontal"
@@ -31,6 +31,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnMarket"
                 android:layout_marginEnd="20dp"
                 android:layout_width="150dp"
                 android:layout_height="125dp"
@@ -67,6 +68,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnGrocery"
                 android:layout_width="150dp"
                 android:layout_height="125dp"
                 app:cardCornerRadius="15dp">
