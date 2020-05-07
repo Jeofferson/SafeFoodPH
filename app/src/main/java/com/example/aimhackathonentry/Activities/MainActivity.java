@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentMarketGrocery;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentStore;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentShop;
 import com.example.aimhackathonentry.BottomNavigationViewItems.FragmentProfile;
@@ -212,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareTabs() {
 
-        Fragment fragment = new FragmentShop();
+        Fragment fragment = new FragmentMarketGrocery();
 
         SuperGlobals.tabLinkedHashMap.put(Constants.SHOP, new ArrayList<>(Arrays.asList(
                 fragment
@@ -278,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
             switch (tabName) {
 
                 case Constants.SHOP:
-                    SuperGlobals.tabLinkedHashMap.get(tabName).add(new FragmentShop());
+                    SuperGlobals.tabLinkedHashMap.get(tabName).add(new FragmentMarketGrocery());
                     break;
 
                 case Constants.STORE:
