@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aimhackathonentry.DummyData.Entities;
+import com.example.aimhackathonentry.Fragments.FragmentAdvancedSearch;
 import com.example.aimhackathonentry.Fragments.FragmentCategories;
 import com.example.aimhackathonentry.Fragments.FragmentProduct;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
@@ -228,7 +229,7 @@ public class FragmentShop extends Fragment {
             @Override
             public void onClick(View v) {
 
-                NavigationManager.goToFragment(view, SuperGlobals.currentTab, new FragmentCategories());
+                NavigationManager.goToFragment(view, SuperGlobals.currentTab, new FragmentAdvancedSearch());
 
             }
         });

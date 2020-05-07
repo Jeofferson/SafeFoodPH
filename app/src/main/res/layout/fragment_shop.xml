@@ -50,14 +50,14 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewProducts"
-                android:layout_below="@id/layoutRecommendedItems"
-                android:layout_above="@id/layoutSearch"
-                android:paddingTop="10dp"
-                android:paddingStart="10dp"
-                android:clipToPadding="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/row_product"/>
+                android:layout_above="@id/layoutSearch"
+                android:layout_below="@id/layoutRecommendedItems"
+                android:clipToPadding="false"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                tools:listitem="@layout/row_product" />
 
         </LinearLayout>
 
@@ -95,7 +95,7 @@
             android:layout_height="40dp"
             android:background="@drawable/my_button_white"
             android:scaleType="fitCenter"
-            android:src="@drawable/settings"/>
+            android:src="@drawable/adjust"/>
 
         <ImageButton
             android:id="@+id/btnCart"
