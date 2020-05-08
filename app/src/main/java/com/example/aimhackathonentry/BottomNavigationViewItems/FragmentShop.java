@@ -141,13 +141,21 @@ public class FragmentShop extends Fragment {
 
                 SuperGlobals.dietList = new ArrayList<>(Entities.dietFoodList);
 
-                for (int i = 0; i < Entities.productList.size(); i++) {
+                if (SuperGlobals.currentCategory.equals(Constants.ALL)) {
 
-                    Product product = Entities.productList.get(i);
+                    SuperGlobals.productListShop = new ArrayList<>(Entities.productList);
 
-                    if (product.getCategory().equals(SuperGlobals.currentCategory)) {
+                } else {
+
+                    for (int i = 0; i < Entities.productList.size(); i++) {
+
+                        Product product = Entities.productList.get(i);
+
+                        if (product.getCategory().equals(SuperGlobals.currentCategory)) {
 
                             SuperGlobals.productListShop.add(product);
+
+                        }
 
                     }
 

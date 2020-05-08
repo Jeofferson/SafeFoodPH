@@ -12,6 +12,8 @@ public class Constants {
     public static final int SPLASH_SCREEN_DURATION = 2000;
     public static final int ANIMATION_DURATION = 2000;
 
+    public static final String ALL = "All";
+
     public static final String EATERY = "Eatery";
 
     public static final String GREENHOUSE = "Greenhouse";

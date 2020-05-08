@@ -98,51 +98,56 @@ public class Entities {
     public static List<Category> categoryList = new ArrayList<>(Arrays.asList(
             new Category(
                     0,
+                    "All",
+                    "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fall.jpg?alt=media&token=87ccdd21-5188-4777-b1b3-39b52d7e9776"
+            ),
+            new Category(
+                    1,
                     "Eatery",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Featery.jpg?alt=media&token=196adfa7-35dd-4e21-9d05-b6396be5de2b"
             ),
             new Category(
-                    1,
+                    2,
                     "Greenhouse",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fgreenhouse.jpeg?alt=media&token=9498e78e-c26f-4f4e-a2d1-90babb78aac3"
             ),
             new Category(
-                    2,
+                    3,
                     "Fruits and Vegetables",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_fruits_vegetables.jpg?alt=media&token=8b851835-1dad-4453-8d8c-2716db0ebf3f"
             ),
             new Category(
-                    3,
+                    4,
                     "Fish and Marine Products",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_fish_marine.jpg?alt=media&token=8cef01bf-e839-4a72-af2d-8c1a0413cf17"
             ),
             new Category(
-                    4,
+                    5,
                     "Meat and Poultry Products",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_meat_poultry.jpg?alt=media&token=cefcc7a1-d9bd-427c-a67b-56af3f1796f4"
             ),
             new Category(
-                    5,
+                    6,
                     "Flour and Bakery Products",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_flour_bakery.jpg?alt=media&token=aab66107-01df-4d5f-8308-5552afe52944"
             ),
             new Category(
-                    6,
+                    7,
                     "Beverage, Confectionery, and Dairy Foods",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_beverages.jpg?alt=media&token=a9260ce3-df6f-45dc-9741-7fe8136c4d35"
             ),
             new Category(
-                    7,
+                    8,
                     "Food Condiments and Seasonings",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_food_condiments.jpg?alt=media&token=548377da-4d18-4e74-add9-6ff9162e287c"
             ),
             new Category(
-                    8,
+                    9,
                     "Food Supplements, Bottled Water, and Snack Food",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_bottled_water.jpg?alt=media&token=cbeaf7fa-ae1c-4bfe-b4d5-368060b399b6"
             ),
             new Category(
-                    9,
+                    10,
                     "Fats and Oils",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/category_image%2Fc_fats_oils.jpg?alt=media&token=81214a15-0045-408f-af74-fb3662d5ef22"
             )
