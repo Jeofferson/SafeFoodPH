@@ -51,9 +51,6 @@ import java.util.Map;
 public class FragmentShop extends Fragment {
 
 
-    private List<Product> dietFoodList;
-    private List<Product> productList;
-
     private ProductAdapter productAdapter;
 
     private View view;
@@ -74,9 +71,6 @@ public class FragmentShop extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_shop, container, false);
-
-        dietFoodList = new ArrayList<>();
-        productList = SuperGlobals.currentTab.equals(Constants.SHOP) ? new ArrayList<>(SuperGlobals.productList) : new ArrayList<>(SuperGlobalsInstanceForMyStoreShop.productList);
 
         prepareSearchView();
         prepareRecyclerView();
@@ -123,11 +117,45 @@ public class FragmentShop extends Fragment {
 
     private void queryProducts() {
 
-        dietFoodList.clear();
-        productList.clear();
+        switch (SuperGlobals.currentTab) {
 
-        dietFoodList = new ArrayList<>(Entities.dietFoodList);
-        productList = new ArrayList<>(Entities.productList);
+            case Constants.SHOP:
+                SuperGlobals.dietList.clear();
+                SuperGlobals.productListShop.clear();
+
+                SuperGlobals.dietList = new ArrayList<>(Entities.dietFoodList);
+
+                for (int i = 0; i < Entities.productList.size(); i++) {
+
+                    Product product = Entities.productList.get(i);
+
+                    if (product.getCategory().equals(SuperGlobals.currentCategory)) {
+
+                            SuperGlobals.productListShop.add(product);
+
+                    }
+
+                }
+                break;
+
+            case Constants.STORE:
+                SuperGlobals.productListStore.clear();
+
+                for (int i = 0; i < Entities.productList.size(); i++) {
+
+                    Product product = Entities.productList.get(i);
+
+                    if (product.getFirstName().equals(Entities.storeList.get(1).getName())) {
+
+                        SuperGlobals.productListStore.add(product);
+
+                    }
+
+                }
+                break;
+
+        }
+
         updateRecyclerView();
 
 //        productList.clear();
@@ -213,12 +241,12 @@ public class FragmentShop extends Fragment {
 
         if (SuperGlobals.currentTab.equals(Constants.SHOP)) {
 
-            productAdapter = new ProductAdapter(dietFoodList, true);
+            productAdapter = new ProductAdapter(SuperGlobals.dietList, true);
             recyclerViewRecommendedItems.setAdapter(productAdapter);
 
         }
 
-        productAdapter = new ProductAdapter(productList, false);
+        productAdapter = new ProductAdapter(SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.productListShop : SuperGlobals.productListStore, false);
         recyclerViewProducts.setAdapter(productAdapter);
 
     }

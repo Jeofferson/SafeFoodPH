@@ -28,7 +28,7 @@ public class Constants {
 
     public static final String FOOD_CONDIMENTS_AND_SEASONINGS = "Food Condiments and Seasonings";
 
-    public static final String FOOD_SUPPLEMENT_BOTTLED_WATER_AND_SNACK_FOOD = "Food Supplement, Bottled Water, and Snack Food";
+    public static final String FOOD_SUPPLEMENT_BOTTLED_WATER_AND_SNACK_FOOD = "Food Supplements, Bottled Water, and Snack Food";
 
     public static final String FATS_AND_OILS = "Fats and Oils";
 

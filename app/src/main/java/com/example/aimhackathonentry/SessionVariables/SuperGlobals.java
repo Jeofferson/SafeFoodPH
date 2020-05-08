@@ -38,7 +38,9 @@ public class SuperGlobals {
     public static LinkedHashMap<String, ArrayList<Fragment>> tabLinkedHashMap = new LinkedHashMap<>();
 
     public static List<Category> categoryList = new ArrayList<>();
-    public static List<Product> productList = new ArrayList<>();
+    public static List<Product> dietList = new ArrayList<>();
+    public static List<Product> productListShop = new ArrayList<>();
+    public static List<Product> productListStore = new ArrayList<>();
     public static List<TradeItem> tradeItemList = new ArrayList<>();
     public static List<Order> orderList = new ArrayList<>();
     public static List<Feedback> feedbackList = new ArrayList<>();
