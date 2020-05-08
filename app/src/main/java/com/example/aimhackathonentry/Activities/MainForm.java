@@ -77,7 +77,7 @@ public class MainForm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                goToMain();
+                goToConfirmSmsCode();
 
             }
         });
@@ -103,6 +103,13 @@ public class MainForm extends AppCompatActivity {
 
         NavigationManager.goToActivity(MainForm.this, MainActivity.class);
         finish();
+
+    }
+
+
+    private void goToConfirmSmsCode() {
+
+        NavigationManager.goToActivity(MainForm.this, ConfirmSmsCode.class);
 
     }
 

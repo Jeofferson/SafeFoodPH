@@ -104,7 +104,6 @@
 
         <Button
             android:id="@+id/btnSms"
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/my_button_thin_dark"
