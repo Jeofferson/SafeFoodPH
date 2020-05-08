@@ -35,4 +35,9 @@
     <color name="lineChartLine1Color">#3E9667</color>
     <color name="lineChartLine2Color">#D47458</color>
     <color name="lineChartLine3Color">#B94D75</color>
+
+    <color name="facebook">#4163B6</color>
+    <color name="facebookClicked">#4D74D7</color>
+    <color name="google">#4383F5</color>
+    <color name="googleClicked">#4A8AFF</color>
 </resources>

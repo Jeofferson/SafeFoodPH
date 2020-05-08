@@ -263,6 +263,7 @@ public class LogIn extends AppCompatActivity {
     private void register() {
 
         NavigationManager.goToActivity(LogIn.this, Register.class);
+        finish();
 
     }
 

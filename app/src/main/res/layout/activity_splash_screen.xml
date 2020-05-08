@@ -27,7 +27,6 @@
 
         <ImageView
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"

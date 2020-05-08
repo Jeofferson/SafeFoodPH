@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Activities.LogIn;
+import com.example.aimhackathonentry.Activities.MainForm;
 import com.example.aimhackathonentry.Helpers.NavigationManager;
 import com.example.aimhackathonentry.ObjectModels.User;
 import com.example.aimhackathonentry.SessionVariables.ConstantsSharedPreferences;
@@ -122,7 +123,7 @@ public class FragmentProfile extends Fragment {
 
     private void logOut() {
 
-        NavigationManager.goToActivity(getContext(), LogIn.class);
+        NavigationManager.goToActivity(getContext(), MainForm.class);
         getActivity().finish();
 
 //        editor.putString(ConstantsSharedPreferences.CURRENT_USER, "");

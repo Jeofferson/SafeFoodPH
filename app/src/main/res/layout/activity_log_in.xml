@@ -82,8 +82,8 @@
             <Button
                 android:id="@+id/btnLogIn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/my_button"
+                android:layout_height="40dp"
+                android:background="@drawable/my_button_thin"
                 android:textColor="@color/white"
                 android:text="Log In"/>
 

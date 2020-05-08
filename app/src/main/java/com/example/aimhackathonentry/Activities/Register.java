@@ -258,6 +258,7 @@ public class Register extends AppCompatActivity {
 
     private void logIn() {
 
+        NavigationManager.goToActivity(Register.this, LogIn.class);
         finish();
 
     }

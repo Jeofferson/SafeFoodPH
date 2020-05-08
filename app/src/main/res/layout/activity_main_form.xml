@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MainForm">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_bg_asset_top_2"/>
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_bg_asset_bottom_2"/>
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"/>
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="100dp"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo2"/>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/my_button_thin_dark"
+            android:textColor="@color/white"
+            android:text="Create An Account"/>
+
+        <Button
+            android:id="@+id/btnLogIn"
+            android:layout_marginBottom="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/my_button_thin"
+            android:textColor="@color/white"
+            android:text="LOG IN"/>
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="There Are Other Ways to Connect"/>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFacebook"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="15dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/my_button_thin_facebook"
+                android:drawablePadding="-15dp"
+                android:drawableStart="@drawable/facebook_icon"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:text="Facebook"/>
+
+            <Button
+                android:id="@+id/btnGoogle"
+                android:paddingStart="15dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/my_button_thin_google"
+                android:drawablePadding="-15dp"
+                android:drawableStart="@drawable/google_icon_white_bg"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:text="Google"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSms"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/my_button_thin_dark"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:text="Send SMS Code"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
