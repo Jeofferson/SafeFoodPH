@@ -33,7 +33,7 @@
                 android:ellipsize="end"
                 android:textSize="32sp"
                 android:textColor="@color/white"
-                android:text="Play4Tech"/>
+                android:text="Farmart"/>
 
         </RelativeLayout>
 
