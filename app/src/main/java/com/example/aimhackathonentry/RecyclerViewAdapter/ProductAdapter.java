@@ -74,7 +74,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Glide.with(context).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
         holder.lblProductName.setText(product.getProductName());
         holder.lblDescription.setText(product.getDescription());
-        holder.lblPrice.setText(String.format("₱%,.2f/pcs", product.getPrice()));
+        holder.lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
         String address = String.format("%s, %s", product.getCity(), product.getProvince());
         holder.lblSellerAddress.setText(address);
 

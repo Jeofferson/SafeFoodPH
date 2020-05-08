@@ -38,6 +38,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         SuperGlobals.currentUser = Entities.userList.get(0);
         user = SuperGlobals.currentUser;
+
+        Collections.shuffle(Entities.productList);
 
         prepareBottomNavigationView();
 
