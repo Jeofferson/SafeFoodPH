@@ -32,6 +32,7 @@
     <color name="theme5Transparent">#90547A1D</color>
     <color name="theme6Transparent">#903B5C0A</color>
 
-    <color name="red">#FF0000</color>
-    <color name="green">#00FF00</color>
+    <color name="lineChartLine1Color">#3E9667</color>
+    <color name="lineChartLine2Color">#D47458</color>
+    <color name="lineChartLine3Color">#B94D75</color>
 </resources>

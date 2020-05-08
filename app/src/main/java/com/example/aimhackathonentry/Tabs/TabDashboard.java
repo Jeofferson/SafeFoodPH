@@ -70,6 +70,7 @@ public class TabDashboard extends Fragment {
 
         ArrayList<Entry> soldArrayList = new ArrayList<>();
         ArrayList<Entry> tradedArrayList = new ArrayList<>();
+        ArrayList<Entry> feedbacksArrayList = new ArrayList<>();
 
         for (int i = 225; i < 275; i++) {
 
@@ -77,6 +78,7 @@ public class TabDashboard extends Fragment {
 
                 soldArrayList.add(new Entry(i, randInt(i, i * i)));
                 tradedArrayList.add(new Entry(i, randInt(i, i * i)));
+                feedbacksArrayList.add(new Entry(i, randInt(i, i * i)));
 
             }
 
@@ -87,7 +89,7 @@ public class TabDashboard extends Fragment {
 
         LineDataSet lineDataSet1 = new LineDataSet(soldArrayList, "Sold");
         lineDataSet1.setLineWidth(3f);
-        lineDataSet1.setColor(getResources().getColor(R.color.red));
+        lineDataSet1.setColor(getResources().getColor(R.color.lineChartLine1Color));
         lineDataSet1.setFillAlpha(110);
         lineDataSet1.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSet1.setDrawCircles(false);
@@ -95,15 +97,24 @@ public class TabDashboard extends Fragment {
 
         LineDataSet lineDataSet2 = new LineDataSet(tradedArrayList, "Traded");
         lineDataSet2.setLineWidth(3f);
-        lineDataSet2.setColor(getResources().getColor(R.color.green));
+        lineDataSet2.setColor(getResources().getColor(R.color.lineChartLine2Color));
         lineDataSet2.setFillAlpha(110);
         lineDataSet2.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSet2.setDrawCircles(false);
         lineDataSet2.setDrawValues(false);
 
+        LineDataSet lineDataSet3 = new LineDataSet(feedbacksArrayList, "Feedbacks");
+        lineDataSet3.setLineWidth(3f);
+        lineDataSet3.setColor(getResources().getColor(R.color.lineChartLine3Color));
+        lineDataSet3.setFillAlpha(110);
+        lineDataSet3.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        lineDataSet3.setDrawCircles(false);
+        lineDataSet3.setDrawValues(false);
+
         ArrayList<ILineDataSet> iLineDataSetArrayList = new ArrayList<>();
         iLineDataSetArrayList.add(lineDataSet1);
         iLineDataSetArrayList.add(lineDataSet2);
+        iLineDataSetArrayList.add(lineDataSet3);
 
         LineData lineData = new LineData(iLineDataSetArrayList);
 

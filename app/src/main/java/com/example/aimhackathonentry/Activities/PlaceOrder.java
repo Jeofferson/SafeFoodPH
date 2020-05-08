@@ -86,7 +86,7 @@ public class PlaceOrder extends AppCompatActivity {
         paymentMethod = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.paymentMethod : SuperGlobalsInstanceForMyStoreShop.paymentMethod;
         additionalMessage = SuperGlobals.currentTab.equals(Constants.SHOP) ? SuperGlobals.additionalMessage : SuperGlobalsInstanceForMyStoreShop.additionalMessage;
 
-        setUpToolbar("Review Order");
+        setUpToolbar("Order Review");
 
         updateViews();
 
