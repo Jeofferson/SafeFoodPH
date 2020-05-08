@@ -18,6 +18,7 @@ import java.util.List;
 public class Entities {
 
 
+    // region Sales
     public static int[][][] sales = {
             {
                     {0, 0, 0},
@@ -34,6 +35,7 @@ public class Entities {
                     {0, 0, 0},
             }
     };
+    // endregion
 
 
     //region User list
@@ -46,6 +48,46 @@ public class Entities {
                     "Dela Peña",
                     "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/user_display_picture%2Fjeofferson.jpg?alt=media&token=a5e1bb2f-5951-49a1-8fc4-a6163590fc0a",
                     "San Fabian",
+                    "Pangasinan"
+            ),
+            new User(
+                    1,
+                    "user",
+                    "user",
+                    "John",
+                    "Doe",
+                    "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/user_display_picture%2Fuser2.jpg?alt=media&token=ac420363-35dc-4980-b1b1-15a4831298a7",
+                    "Calasiao",
+                    "Pangasinan"
+            ),
+            new User(
+                    2,
+                    "user",
+                    "user",
+                    "Jane",
+                    "Doe",
+                    "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/user_display_picture%2Fuser3.jpg?alt=media&token=e1a675be-0b95-4678-ac66-5dd050aa8269",
+                    "Lingayen",
+                    "Pangasinan"
+            ),
+            new User(
+                    3,
+                    "user",
+                    "user",
+                    "Maria",
+                    "Dela Cruz",
+                    "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/user_display_picture%2Fuser4.jpg?alt=media&token=056cc0bc-f965-4145-ac26-37681d22a434",
+                    "Mangaldan",
+                    "Pangasinan"
+            ),
+            new User(
+                    4,
+                    "user",
+                    "user",
+                    "Liza",
+                    "Soberano",
+                    "https://firebasestorage.googleapis.com/v0/b/safefoodph.appspot.com/o/user_display_picture%2Fuser5.jpg?alt=media&token=442d81c6-04e7-452d-a849-5ae31327f3d0",
+                    "Dagupan City",
                     "Pangasinan"
             )
     ));
@@ -1086,10 +1128,10 @@ public class Entities {
     public static List<Order> orderList = new ArrayList<>(Arrays.asList(
             new Order(
                     0,
-                    userList.get(0).getUserId(),
-                    userList.get(0).getDisplayPicture(),
-                    userList.get(0).getFirstName(),
-                    userList.get(0).getLastName(),
+                    userList.get(2).getUserId(),
+                    userList.get(2).getDisplayPicture(),
+                    userList.get(2).getFirstName(),
+                    userList.get(2).getLastName(),
                     productList.get(8).getProductId(),
                     productList.get(8).getProductDisplayPicture(),
                     productList.get(8).getProductName(),
@@ -1100,24 +1142,24 @@ public class Entities {
             ),
             new Order(
                     0,
-                    userList.get(0).getUserId(),
-                    userList.get(0).getDisplayPicture(),
-                    userList.get(0).getFirstName(),
-                    userList.get(0).getLastName(),
+                    userList.get(1).getUserId(),
+                    userList.get(1).getDisplayPicture(),
+                    userList.get(1).getFirstName(),
+                    userList.get(1).getLastName(),
                     productList.get(5).getProductId(),
                     productList.get(5).getProductDisplayPicture(),
                     productList.get(5).getProductName(),
                     productList.get(5).getPrice(),
-                    4,
+                    2,
                     "Trade",
                     "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
             ),
             new Order(
                     0,
-                    userList.get(0).getUserId(),
-                    userList.get(0).getDisplayPicture(),
-                    userList.get(0).getFirstName(),
-                    userList.get(0).getLastName(),
+                    userList.get(2).getUserId(),
+                    userList.get(2).getDisplayPicture(),
+                    userList.get(2).getFirstName(),
+                    userList.get(2).getLastName(),
                     productList.get(7).getProductId(),
                     productList.get(7).getProductDisplayPicture(),
                     productList.get(7).getProductName(),
@@ -1128,29 +1170,29 @@ public class Entities {
             ),
             new Order(
                     0,
-                    userList.get(0).getUserId(),
-                    userList.get(0).getDisplayPicture(),
-                    userList.get(0).getFirstName(),
-                    userList.get(0).getLastName(),
+                    userList.get(3).getUserId(),
+                    userList.get(3).getDisplayPicture(),
+                    userList.get(3).getFirstName(),
+                    userList.get(3).getLastName(),
                     productList.get(4).getProductId(),
                     productList.get(4).getProductDisplayPicture(),
                     productList.get(4).getProductName(),
                     productList.get(4).getPrice(),
-                    4,
+                    7,
                     "Trade",
                     "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
             ),
             new Order(
                     0,
-                    userList.get(0).getUserId(),
-                    userList.get(0).getDisplayPicture(),
-                    userList.get(0).getFirstName(),
-                    userList.get(0).getLastName(),
+                    userList.get(4).getUserId(),
+                    userList.get(4).getDisplayPicture(),
+                    userList.get(4).getFirstName(),
+                    userList.get(4).getLastName(),
                     productList.get(1).getProductId(),
                     productList.get(1).getProductDisplayPicture(),
                     productList.get(1).getProductName(),
                     productList.get(1).getPrice(),
-                    4,
+                    6,
                     "Trade",
                     "Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus. Lorem ipsum dolor sit amet, te cum discere bonorum civibus. Mei no nonumes inimicus splendide, cu noluisse invidunt necessitatibus est. Ei sit iriure numquam adversarium. At molestiae moderatius assueverit mei, at nam nulla quaestio pertinacia. Ei sanctus omnesque torquatos eos, ex has ubique erroribus."
             )

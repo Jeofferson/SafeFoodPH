@@ -51,8 +51,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         Order order = orderList.get(position);
 
         Glide.with(context).load(ConstantsVolley.URL_IMAGES + order.getBuyerDisplayPicture()).into(holder.imgBuyerDisplayPicture);
-        String fullName = String.format("%s %s", order.getFirstName(), order.getLastName());
-        holder.lblBuyerFullName.setText(fullName);
+        holder.lblBuyerFirstName.setText(order.getFirstName());
+        holder.lblBuyerLastName.setText(order.getLastName());
 
         Glide.with(context).load(ConstantsVolley.URL_IMAGES + order.getProductDisplayPicture()).into(holder.imgProductDisplayPicture);
         holder.lblProductName.setText(order.getProductName());
@@ -70,7 +70,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public class OrderViewHolder extends RecyclerView.ViewHolder {
 
         private CircleImageView imgBuyerDisplayPicture;
-        private TextView lblBuyerFullName;
+        private TextView lblBuyerFirstName;
+        private TextView lblBuyerLastName;
 
         private ImageView imgProductDisplayPicture;
         private TextView lblProductName;
@@ -80,7 +81,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             super(itemView);
 
             imgBuyerDisplayPicture = itemView.findViewById(R.id.imgBuyerDisplayPicture);
-            lblBuyerFullName = itemView.findViewById(R.id.lblBuyerFullName);
+            lblBuyerFirstName = itemView.findViewById(R.id.lblBuyerFirstName);
+            lblBuyerLastName = itemView.findViewById(R.id.lblBuyerLastName);
 
             imgProductDisplayPicture = itemView.findViewById(R.id.imgProductDisplayPicture);
             lblProductName = itemView.findViewById(R.id.lblProductName);

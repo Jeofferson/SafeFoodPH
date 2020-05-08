@@ -22,23 +22,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgBuyerDisplayPicture"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:id="@+id/lblBuyerFullName"
-                android:layout_gravity="center_vertical"
-                android:layout_width="0dp"
+                android:id="@+id/lblBuyerFirstName"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Jeofferson Dela Peña"/>
+                android:text="Jeofferson"/>
+
+            <TextView
+                android:id="@+id/lblBuyerLastName"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dela Peña"/>
 
         </LinearLayout>
 

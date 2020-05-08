@@ -16,4 +16,10 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/row_category"/>
 
+    <View
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/drop_shadow_below"/>
+
 </RelativeLayout>
