@@ -5,6 +5,76 @@
 
     <string name="readMore"><u>Read More...</u></string>
 
+    <string-array name="location">
+        <item>Agno</item>
+        <item>Aguilar</item>
+        <item>Alaminos</item>
+        <item>Alcala</item>
+        <item>Anda</item>
+        <item>Asingan</item>
+        <item>Balungao</item>
+        <item> Bani</item>
+        <item> Basista</item>
+        <item>  Bautista</item>
+        <item>  Bayambang</item>
+        <item>  Binalonan</item>
+        <item> Binmaley</item>
+        <item> Bolinao</item>
+        <item> Bugallon</item>
+        <item>  Burgos</item>
+        <item>  Calasiao</item>
+        <item>  Dagupan City</item>
+        <item> Dasol</item>
+        <item> Infanta</item>
+        <item>  Labrador</item>
+        <item>  Laoac</item>
+        <item>  Lingayen</item>
+        <item>  Mabini</item>
+        <item> Malasiqui</item>
+        <item> Manaoag</item>
+        <item> Mangaldan</item>
+        <item> Mangatarem</item>
+        <item>Mapandan</item>
+        <item>Natividad</item>
+        <item>Pozorrubio</item>
+        <item>Rosales</item>
+        <item>San Carlos City</item>
+        <item>San Fabian</item>
+        <item>San Jacinto</item>
+        <item>San Manuel</item>
+        <item> San Nicolas</item>
+        <item>San Quintin</item>
+        <item>Sison</item>
+        <item>Sta. Barbara</item>
+        <item>Sta. Maria</item>
+        <item>Sto. Tomas</item>
+        <item>Sual</item>
+        <item>Tayug</item>
+        <item>Umingan</item>
+        <item>Urbiztondo</item>
+        <item>Urdaneta</item>
+        <item>Villasis</item>
+    </string-array>
+
+    <string-array name="range">
+        <item>Within 2 km</item>
+        <item>Within 5 km</item>
+        <item>Within 10 km</item>
+        <item>Within 20 km</item>
+        <item>Within 50 km</item>
+        <item>Within 100 km</item>
+    </string-array>
+
+    <string-array name="sortByPrice">
+        <item>Price: Lowest to Highest</item>
+        <item>Price: Highest to Lowest</item>
+    </string-array>
+
+    <string-array name="sortByLocation">
+        <item>Location: Nearest to Furthest</item>
+        <item>Location: Furthest to Nearest</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
