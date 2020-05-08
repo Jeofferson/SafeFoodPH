@@ -41,7 +41,7 @@ public class FragmentOrders extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_orders, container, false);
 
-        setUpToolbar("Orders");
+        setUpToolbar("Orders to Approve");
 
         prepareRecyclerView();
 

@@ -90,6 +90,22 @@ public class FragmentShop extends Fragment {
         View searchPlate = searchView.findViewById(androidx.appcompat.R.id.search_plate);
         searchPlate.setBackgroundColor(Color.parseColor("#00000000"));
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                productAdapter.getFilter().filter(newText);
+
+                return false;
+
+            }
+        });
+
     }
 
 

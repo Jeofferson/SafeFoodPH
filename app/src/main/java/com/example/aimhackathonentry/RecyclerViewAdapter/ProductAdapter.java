@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,23 +22,29 @@ import com.example.aimhackathonentry.SessionVariables.ConstantsVolley;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobals;
 import com.example.aimhackathonentry.SessionVariables.SuperGlobalsInstanceForMyStoreShop;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> implements Filterable {
 
 
     boolean isHorizontalScrolling;
 
     private List<Product> productList;
+    private List<Product> productListFull;
 
     private Context context;
 
 
     public ProductAdapter(List<Product> productList, boolean isHorizontalSrolling) {
-        this.isHorizontalScrolling = isHorizontalSrolling;
         this.productList = productList;
+        this.isHorizontalScrolling = isHorizontalSrolling;
+
+        productListFull = new ArrayList<>(productList);
     }
 
 
@@ -85,6 +93,64 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public int getItemCount() {
         return productList.size();
     }
+
+
+    @Override
+    public Filter getFilter() {
+        return productFilter;
+    }
+
+
+    private Filter productFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            List<Product> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+
+                filteredList.addAll(productListFull);
+
+            } else {
+
+                String filterPattern = constraint.toString().trim().toLowerCase();
+
+                for (int i = 0; i < productListFull.size(); i++) {
+
+                    Product product = productListFull.get(i);
+
+                    if (
+                            product.getProductName().toLowerCase().contains(filterPattern) ||
+                            product.getCategory().toLowerCase().contains(filterPattern) ||
+                            product.getCity().toLowerCase().contains(filterPattern) ||
+                            product.getProvince().toLowerCase().contains(filterPattern)
+                    ) {
+
+                        filteredList.add(product);
+
+                    }
+
+                }
+
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+
+            return filterResults;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            productList.clear();
+            productList.addAll((List) results.values);
+
+            notifyDataSetChanged();
+
+        }
+    };
 
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
