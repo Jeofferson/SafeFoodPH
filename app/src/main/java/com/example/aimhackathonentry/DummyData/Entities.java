@@ -887,7 +887,7 @@ public class Entities {
             new Store(
                     1,
                     "Market Basket",
-                    "San Fabian",
+                    "Calasiao",
                     "Pangasinan",
                     57,
                     48,
@@ -897,7 +897,7 @@ public class Entities {
             new Store(
                     2,
                     "Fresh Stocks",
-                    "San Fabian",
+                    "Lingayen",
                     "Pangasinan",
                     57,
                     48,
@@ -907,7 +907,7 @@ public class Entities {
             new Store(
                     3,
                     "Greenshop",
-                    "San Fabian",
+                    "Mangaldan",
                     "Pangasinan",
                     57,
                     48,
@@ -917,7 +917,7 @@ public class Entities {
             new Store(
                     4,
                     "Nature's Closet",
-                    "San Fabian",
+                    "Dagupan City",
                     "Pangasinan",
                     57,
                     48,
