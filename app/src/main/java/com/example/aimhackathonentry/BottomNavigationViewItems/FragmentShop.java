@@ -51,6 +51,7 @@ import java.util.Map;
 public class FragmentShop extends Fragment {
 
 
+    private List<Product> dietFoodList;
     private List<Product> productList;
 
     private ProductAdapter productAdapter;
@@ -74,6 +75,7 @@ public class FragmentShop extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_shop, container, false);
 
+        dietFoodList = new ArrayList<>();
         productList = SuperGlobals.currentTab.equals(Constants.SHOP) ? new ArrayList<>(SuperGlobals.productList) : new ArrayList<>(SuperGlobalsInstanceForMyStoreShop.productList);
 
         prepareSearchView();
@@ -121,8 +123,10 @@ public class FragmentShop extends Fragment {
 
     private void queryProducts() {
 
+        dietFoodList.clear();
         productList.clear();
 
+        dietFoodList = new ArrayList<>(Entities.dietFoodList);
         productList = new ArrayList<>(Entities.productList);
         updateRecyclerView();
 
@@ -209,7 +213,7 @@ public class FragmentShop extends Fragment {
 
         if (SuperGlobals.currentTab.equals(Constants.SHOP)) {
 
-            productAdapter = new ProductAdapter(productList, true);
+            productAdapter = new ProductAdapter(dietFoodList, true);
             recyclerViewRecommendedItems.setAdapter(productAdapter);
 
         }

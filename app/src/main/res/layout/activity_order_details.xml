@@ -218,10 +218,18 @@
 
                     <RadioButton
                         android:id="@+id/radioButtonTrade"
+                        android:layout_marginBottom="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:text="Trade"/>
+
+                    <RadioButton
+                        android:id="@+id/radioButtonLoan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="Loan"/>
 
                 </RadioGroup>
 

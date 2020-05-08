@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:text="Based From Your Diet Plan"/>
+                        android:text="Healthy Foods"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerViewRecommendedItems"

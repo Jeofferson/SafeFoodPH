@@ -188,6 +188,7 @@ public class OrderDetails extends AppCompatActivity {
         switch (paymentMethod) {
 
             case "Cash":
+            case "Loan":
                 NavigationManager.goToActivity(OrderDetails.this, AdditionalMessage.class);
                 break;
 
