@@ -60,20 +60,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/lblQuantity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Quantity: 3"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:id="@+id/lblDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="2"
+                    android:maxLines="3"
                     android:text="@string/dummyText" />
 
             </LinearLayout>
@@ -140,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btnNext"
             android:layout_margin="10dp"
             android:layout_width="match_parent"

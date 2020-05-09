@@ -44,7 +44,6 @@
             android:layout_gravity="bottom"
             app:tabGravity="center"
             app:tabMode="fixed"
-            app:tabIndicatorColor="@color/brown1"
             app:layout_scrollFlags="enterAlways"/>
 
     </com.google.android.material.appbar.AppBarLayout>

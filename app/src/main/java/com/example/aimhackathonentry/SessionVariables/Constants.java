@@ -3,7 +3,7 @@ package com.example.aimhackathonentry.SessionVariables;
 public class Constants {
 
 
-    public static final String TAG = "My Tag";
+    public static final int PICK_IMAGE_REQUEST = 1;
 
     public static final String SHOP = "Shop";
     public static final String STORE = "Store";

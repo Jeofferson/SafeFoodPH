@@ -41,7 +41,6 @@ public class TradeGoods extends AppCompatActivity {
     private ImageView imgDisplayPicture;
     private TextView lblProductName;
     private TextView lblPrice;
-    private TextView lblQuantity;
     private TextView lblDescription;
 
     private RecyclerView recyclerViewTradeGoods;
@@ -126,7 +125,6 @@ public class TradeGoods extends AppCompatActivity {
         imgDisplayPicture = findViewById(R.id.imgDisplayPicture);
         lblProductName = findViewById(R.id.lblProductName);
         lblPrice = findViewById(R.id.lblPrice);
-        lblQuantity = findViewById(R.id.lblQuantity);
         lblDescription = findViewById(R.id.lblDescription);
 
         btnNext = findViewById(R.id.btnNext);
@@ -138,7 +136,6 @@ public class TradeGoods extends AppCompatActivity {
         Glide.with(TradeGoods.this).load(ConstantsVolley.URL_IMAGES + product.getProductDisplayPicture()).into(imgDisplayPicture);
         lblProductName.setText(product.getProductName());
         lblPrice.setText(String.format("₱%,.2f", product.getPrice()));
-        lblQuantity.setText(String.format("Quantity: %d", product.getQuantity()));
         lblDescription.setText(product.getDescription());
 
         btnAddTradeItem.setOnClickListener(new View.OnClickListener() {

@@ -211,7 +211,7 @@
             android:background="@drawable/my_button_thin"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:text="Add Product"/>
+            android:text="Sell"/>
 
     </androidx.cardview.widget.CardView>
 

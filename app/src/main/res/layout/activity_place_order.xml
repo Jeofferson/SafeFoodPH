@@ -125,7 +125,7 @@
 
                 </LinearLayout>
 
-                <Button
+                <android.widget.Button
                     android:visibility="gone"
                     android:id="@+id/btnViewOffer"
                     android:layout_gravity="center_horizontal"
