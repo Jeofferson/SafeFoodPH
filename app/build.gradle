@@ -72,4 +72,7 @@ dependencies {
 
     // Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // Chips
+    implementation 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
 }

@@ -200,7 +200,7 @@
 
             </LinearLayout>
 
-            <Button
+            <android.widget.Button
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="40dp"
                 android:layout_width="match_parent"

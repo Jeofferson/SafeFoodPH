@@ -121,7 +121,7 @@
                 android:layout_weight="1"
                 android:hint="Add goods to trade..."/>
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/btnAddTradeItem"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"

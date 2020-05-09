@@ -1,10 +1,12 @@
 package com.example.aimhackathonentry.Activities;
 
+import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager;
+import com.beloo.widget.chipslayoutmanager.gravity.IChildGravityResolver;
+import com.beloo.widget.chipslayoutmanager.layouter.breaker.IRowBreaker;
 import com.bumptech.glide.Glide;
 import com.example.aimhackathonentry.Fragments.FragmentProduct;
 import com.example.aimhackathonentry.Helpers.NavigationManager;

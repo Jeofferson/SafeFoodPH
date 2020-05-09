@@ -28,7 +28,7 @@
 
     </LinearLayout>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/btnDone"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="80dp"

@@ -1,5 +1,7 @@
 package com.example.aimhackathonentry.ObjectModels;
 
+import java.util.List;
+
 public class Product {
 
 
@@ -20,8 +22,10 @@ public class Product {
     private String description;
     private String paymentMethod;
 
+    private List<String> nutritions;
 
-    public Product(int productId, int sellerId, String firstName, String lastName, String userDisplayPicture, String city, String province, String productName, String productDisplayPicture, String category, double price, int quantity, String description, String paymentMethod) {
+
+    public Product(int productId, int sellerId, String firstName, String lastName, String userDisplayPicture, String city, String province, String productName, String productDisplayPicture, String category, double price, int quantity, String description, String paymentMethod, List<String> nutritions) {
         this.productId = productId;
         this.sellerId = sellerId;
         this.firstName = firstName;
@@ -36,6 +40,7 @@ public class Product {
         this.quantity = quantity;
         this.description = description;
         this.paymentMethod = paymentMethod;
+        this.nutritions = nutritions;
     }
 
 
@@ -149,6 +154,14 @@ public class Product {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public List<String> getNutritions() {
+        return nutritions;
+    }
+
+    public void setNutritions(List<String> nutritions) {
+        this.nutritions = nutritions;
     }
 
 

@@ -115,18 +115,36 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
                 String filterPattern = constraint.toString().trim().toLowerCase();
 
+                loop1:
                 for (int i = 0; i < productListFull.size(); i++) {
 
                     Product product = productListFull.get(i);
 
                     if (
                             product.getProductName().toLowerCase().contains(filterPattern) ||
-                            product.getCategory().toLowerCase().contains(filterPattern) ||
-                            product.getCity().toLowerCase().contains(filterPattern) ||
-                            product.getProvince().toLowerCase().contains(filterPattern)
+                                    product.getCategory().toLowerCase().contains(filterPattern) ||
+                                    product.getCity().toLowerCase().contains(filterPattern) ||
+                                    product.getProvince().toLowerCase().contains(filterPattern) ||
+                                    product.getNutritions().contains(filterPattern)
                     ) {
 
                         filteredList.add(product);
+
+                    } else {
+
+                        loop2:
+                        for (int j = 0; j < product.getNutritions().size(); j++) {
+
+                            String nutrition = product.getNutritions().get(j).toLowerCase();
+
+                            if (nutrition.contains(filterPattern)) {
+
+                                filteredList.add(product);
+                                break loop2;
+
+                            }
+
+                        }
 
                     }
 
