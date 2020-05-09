@@ -65,21 +65,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name"/>
-
-        <EditText
-            android:id="@+id/txtCity"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="City"/>
-
-        <EditText
-            android:id="@+id/txtProvince"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Province"/>
-
         <EditText
             android:id="@+id/txtPassword"
             android:layout_marginBottom="5dp"

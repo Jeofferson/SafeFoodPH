@@ -72,8 +72,8 @@ public class Register extends AppCompatActivity {
         txtUsername = findViewById(R.id.txtUsername);
         txtFirstName = findViewById(R.id.txtFirstName);
         txtLastName = findViewById(R.id.txtLastName);
-        txtCity = findViewById(R.id.txtCity);
-        txtProvince = findViewById(R.id.txtProvince);
+//        txtCity = findViewById(R.id.txtCity);
+//        txtProvince = findViewById(R.id.txtProvince);
         txtPassword = findViewById(R.id.txtPassword);
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
         btnRegister = findViewById(R.id.btnRegister);

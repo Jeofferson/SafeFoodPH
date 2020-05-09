@@ -32,6 +32,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -68,19 +69,28 @@ public class TabDashboard extends Fragment {
 
     private void prepareLineChartView() {
 
+        ArrayList<Integer> soldRawArrayList = new ArrayList<>(Arrays.asList(
+                23,
+                120,
+                408,
+                503,
+                789
+        ));
+        ArrayList<Integer> tradedRawArrayList = new ArrayList<>(Arrays.asList(
+                67,
+                87,
+                95,
+                320,
+                890
+        ));
+
         ArrayList<Entry> soldArrayList = new ArrayList<>();
         ArrayList<Entry> tradedArrayList = new ArrayList<>();
-        ArrayList<Entry> feedbacksArrayList = new ArrayList<>();
 
-        for (int i = 225; i < 275; i++) {
+        for (int i = 0; i < soldRawArrayList.size(); i++) {
 
-            if (i % 10 == 0) {
-
-                soldArrayList.add(new Entry(i, randInt(i, i * i)));
-                tradedArrayList.add(new Entry(i, randInt(i, i * i)));
-                feedbacksArrayList.add(new Entry(i, randInt(i, i * i)));
-
-            }
+            soldArrayList.add(new Entry(i, soldRawArrayList.get(i)));
+            tradedArrayList.add(new Entry(i, tradedRawArrayList.get(i)));
 
         }
 
@@ -103,23 +113,14 @@ public class TabDashboard extends Fragment {
         lineDataSet2.setDrawCircles(false);
         lineDataSet2.setDrawValues(false);
 
-        LineDataSet lineDataSet3 = new LineDataSet(feedbacksArrayList, "Feedbacks");
-        lineDataSet3.setLineWidth(3f);
-        lineDataSet3.setColor(getResources().getColor(R.color.lineChartLine3Color));
-        lineDataSet3.setFillAlpha(110);
-        lineDataSet3.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-        lineDataSet3.setDrawCircles(false);
-        lineDataSet3.setDrawValues(false);
-
         ArrayList<ILineDataSet> iLineDataSetArrayList = new ArrayList<>();
         iLineDataSetArrayList.add(lineDataSet1);
         iLineDataSetArrayList.add(lineDataSet2);
-        iLineDataSetArrayList.add(lineDataSet3);
 
         LineData lineData = new LineData(iLineDataSetArrayList);
 
         Description description = new Description();
-        description.setText(String.format("*chart data from the last %s months", soldArrayList.size()));
+        description.setText(String.format("*chart data from the last 12 months", soldArrayList.size()));
 //        description.setTextColor(getResources().getColor(R.color.currentText2));
 
         lineChartTransactions = view.findViewById(R.id.lineChartTransactions);
